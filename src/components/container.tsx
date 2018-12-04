@@ -1,4 +1,4 @@
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import {clearFix} from 'polished'
 
 import {breakpoints, widths, dimensions} from '../styles/variables'

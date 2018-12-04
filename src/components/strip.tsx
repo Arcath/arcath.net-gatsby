@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faNewspaper, faChevronCircleDown, IconDefinition} from '@fortawesome/free-solid-svg-icons'
 import {Link, StaticQuery, graphql} from 'gatsby'

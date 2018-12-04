@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {format} from 'date-fns'
 import Masonry from 'react-masonry-component'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import {Link} from 'gatsby'
 import {clearFix} from 'polished'
 
