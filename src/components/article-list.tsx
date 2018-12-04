@@ -82,8 +82,16 @@ const Tags = styled('ul')`
 `
 
 export const DateHeading = styled('h4')`
-color:${colors.gray};
-font-weight:200;
+  color:${colors.gray};
+  font-weight:200;
+`
+
+export const ArticleHeading = styled('h2')`
+  small{
+    color:${colors.gray};
+    font-size:0.6em;
+    font-weight:200;
+  }
 `
 
 export const ArticleList = ({articles}: {articles: {

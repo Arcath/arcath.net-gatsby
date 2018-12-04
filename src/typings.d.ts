@@ -14,6 +14,13 @@ declare module '*.module.css' {
   export = cssModule
 }
 
+/** type shim for pngs */
+
+declare module '*.png' {
+  const pngImage: any
+  export = pngImage
+}
+
 interface FluidImage{
   childImageSharp: {
     fluid: object
@@ -38,4 +45,15 @@ interface PostDetails{
     date: string
     layout: string
   }
+}
+
+interface LocationProps{
+  hash: string
+  hostname: string
+  href: string
+  key: string
+  origin: string
+  pathname: string
+  port: string
+  protocol: string
 }

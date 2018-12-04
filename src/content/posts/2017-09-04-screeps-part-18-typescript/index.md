@@ -4,6 +4,7 @@ lead: Swapping my code base to Typescript.
 date: 2017-09-04T15:35:00Z
 tags:
  - Screeps
+ - Typescript
 ---
 This is part 18 of my Screeps story, you can read the whole story [here](/articles/screeps).
 

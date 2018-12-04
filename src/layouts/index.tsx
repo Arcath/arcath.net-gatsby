@@ -86,7 +86,7 @@ const IndexLayout: React.SFC<{expanded?: boolean, icon?: IconDefinition, color?:
         }
 
         recentPosts: allMarkdownRemark(
-          filter: {fields: {layout: {eq: "post"}}},
+          filter: {fields: {layout: {glob: "+(post|book|note)"}}},
           sort: {fields: [fields___date], order: DESC},
           limit: 5
         ){
@@ -138,7 +138,7 @@ const IndexLayout: React.SFC<{expanded?: boolean, icon?: IconDefinition, color?:
             <p>All content is my own unless otherwise stated.</p>
             <p>
               <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-                <img src={cc} />
+                <img src={cc} alt="cc by-nc-sa" />
               </a>
             </p>
           </ThirdContainer>

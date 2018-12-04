@@ -7,6 +7,7 @@ import {ArticleList} from '../components/article-list'
 import {PageTitle} from '../utils'
 
 import IndexLayout from '../layouts/index'
+import {colors} from '../styles/variables'
 
 const TagTemplate: React.SFC<{
   data: {
@@ -17,6 +18,7 @@ const TagTemplate: React.SFC<{
             title: string
             lead: string
             tags: string[]
+            date: string
           }
           fields: {
             date: string
@@ -34,7 +36,7 @@ const TagTemplate: React.SFC<{
 
   return <IndexLayout icon={faTag}>
     <PageTitle chunks={[pageContext.tag, 'Tags']} />
-    <ContentContainer>
+    <ContentContainer color={colors.brand}>
       <h2>{pageContext.tag} ({data.articles.edges.length})</h2>
       <ArticleList articles={data.articles} />
     </ContentContainer>
@@ -45,13 +47,17 @@ export default TagTemplate
 
 export const query = graphql`
   query TagTemplateQuery($tag: String!){
-    articles: allMarkdownRemark(filter: {frontmatter: {tags: {in: [$tag]}}}){
+    articles: allMarkdownRemark(
+      filter: {frontmatter: {tags: {in: [$tag]}}},
+      sort: {fields: [fields___date], order: DESC}
+    ){
       edges{
         node{
           frontmatter{
             title
             lead
             tags
+            date
           }
           fields{
             date

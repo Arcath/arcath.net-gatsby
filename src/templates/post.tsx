@@ -6,6 +6,7 @@ import {formatAsDate, PageTitle} from '../utils'
 import {ContentContainer, Container} from '../components/container'
 import {colors} from '../styles/variables'
 import {ArticleEntry, TagList, DateHeading} from '../components/article-list'
+import {ShareButtons} from '../components/share'
 
 import IndexLayout from '../layouts/index'
 
@@ -23,7 +24,8 @@ const PostTemplate: React.SFC<{
     nextPost: PostDetails
     previousPost: PostDetails
   }
-}> = ({data}) => {
+  location: LocationProps
+}> = ({data, location}) => {
   let post = data.markdownRemark
 
   return <IndexLayout color={colors.post}>
@@ -33,6 +35,7 @@ const PostTemplate: React.SFC<{
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
       <TagList tags={post.frontmatter.tags} />
       <div dangerouslySetInnerHTML={{__html: post.html}} />
+      <ShareButtons url={location.href} title={post.frontmatter.title} />
     </ContentContainer>
     <Container>
       <h2>Other Posts</h2>

@@ -1,10 +1,11 @@
 import * as React from 'react'
 import {graphql} from 'gatsby'
 
-import {Container} from '../components/container'
+import {Container, ContentContainer} from '../components/container'
 import {ArticleEntry} from '../components/article-list'
 
 import IndexLayout from '../layouts/index'
+import {colors} from '../styles/variables'
 
 const PageTemplate: React.SFC<{
   data: {
@@ -22,10 +23,10 @@ const PageTemplate: React.SFC<{
   let page = data.markdownRemark
 
   return <IndexLayout>
-    <Container>
+    <ContentContainer color={colors.brand}>
       <h2>{page.frontmatter.title}</h2>
       <div dangerouslySetInnerHTML={{__html: page.html}} />
-    </Container>
+    </ContentContainer>
     <Container>
       <h2>My Articles</h2>
       <ArticleEntry article={data.previousPost} />

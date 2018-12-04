@@ -30,7 +30,7 @@ I'm going to make the same pledge I always do when I update my blog and that is 
 
 ## Why not a WordPress theme.
 
-This is a genuine question, I am a WordPress developer and making themes is a big part of my work with WordPress. For me WordPress and PHP are something I _have_ to work with, I enjoy it but if I had a choice I would drop it in favour of something else.
+This is a genuine question, I am a WordPress developer and making themes is a big part of my work with WordPress. For me WordPress and PHP are something I _have_ to work with, I enjoy it but if I had a choice I would drop it in favour of something else. I also prefer making my front-ends in React which isn't easily shoe-horned into WordPress.
 
 ## Typescript
 
@@ -62,7 +62,9 @@ I'm going to write a bit about Typescript in general soon, I really like it desp
 
 ## The site
 
-I'm really happy with how the site has turned out. Gatsby is incredibly powerful and has been more than up to the job.
+I'm really happy with how the site has turned out. Gatsby is incredibly powerful and has been more than up to the job. I feel that I've met all my targets and more.
 
-This is the first time I've given styled components a real go and they are a huge part of how easy this site was to build.
+This is the first time I've given styled components a real go and they are a huge part of how easy this site was to build. I found it much easier to design the site and make some of its facier features work as the _css_ had access to the component props and state.
+
+I've gone of a layout that prioritises the content in a _Medium_ like way. My old site had too many widgets and fluff around the content and I didn't really need it.
 
