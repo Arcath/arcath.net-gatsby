@@ -1,7 +1,7 @@
 ---
 title: Moving to Gatsby
 lead: Ive moved my site over to Gatsby!
-date: 2018-10-08T20:30:00+01:00
+date: 2018-12-04T20:30:00+01:00
 tags:
  - Gatsby
  - Typescript
@@ -38,7 +38,7 @@ I love Typescript, I've been using it for quite a while on a few projects and it
 
 Dont get me wrong I can see why people like:
 
-```ts
+```typescript
 import { foo } from 'bar'
 
 if ( foo.bar === true ) {
@@ -50,7 +50,7 @@ but its not my style, and having VSCode reformat my code to that style everytime
 
 For reference I would format that as:
 
-```ts
+```typescript
 import {foo} from 'bar'
 
 if(foo.bar === true){
@@ -66,5 +66,15 @@ I'm really happy with how the site has turned out. Gatsby is incredibly powerful
 
 This is the first time I've given styled components a real go and they are a huge part of how easy this site was to build. I found it much easier to design the site and make some of its facier features work as the _css_ had access to the component props and state.
 
-I've gone of a layout that prioritises the content in a _Medium_ like way. My old site had too many widgets and fluff around the content and I didn't really need it.
+I've gone of a layout that prioritises the content in a _Medium_ like way. My old site had too many widgets and fluff around the content and I didn't really need it. This also includes the Google & Amazon ads that were in the sidebar. I was trying to monetize the site but I wasn't making any income from it.
+
+## Gatsby
+
+Gatsby took some wrangling, I think I was held back by thinking of it as Jekyll written in javascript, its not. It's so much more.
+
+One of the things that took a bit of getting used to was the Gatsby has no pre-defined folder structure. After `gatsby-config.js` and `gatsby-node.js` its all up to you. My gatsby-node file creates pages for all the markdown content, and the tags ready for the site to be built from my templates.
+
+Gatsby uses Graphql to provide data to the templates which can be a little obscure some times as its not immediatley clear how data maps from your files to the graphql api, and then how you pass the variables the queries.
+
+The source of this site is available on GitHub if you want to have a look at it.
 

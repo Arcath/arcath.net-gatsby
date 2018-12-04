@@ -11,6 +11,7 @@ import 'react-dynamic-swiper/lib/styles.css'
 import {Container} from './container'
 import {colors, fonts, breakpoints} from '../styles/variables'
 import {getEmSize} from '../styles/mixins'
+import {formatAsDate} from '../utils'
 
 
 interface BlockProps{
@@ -112,6 +113,10 @@ const Expand = styled('div')`
   }
 `
 
+const DateLine = styled('p')`
+  font-weight:200;
+`
+
 type StripProps = {expanded?: boolean, title: string, icon?: IconDefinition, color?: string}
 
 export class Strip extends React.Component<StripProps, {expanded: boolean, width: number}>{
@@ -179,6 +184,7 @@ export class Strip extends React.Component<StripProps, {expanded: boolean, width
                   frontmatter{
                     title
                     lead
+                    date
                   }
                   fields{
                     date
@@ -196,6 +202,7 @@ export class Strip extends React.Component<StripProps, {expanded: boolean, width
                 frontmatter: {
                   title: string
                   lead: string
+                  date: string
                 }
                 fields: {
                   slug: string
@@ -207,6 +214,7 @@ export class Strip extends React.Component<StripProps, {expanded: boolean, width
           let posts = data.featuredPosts.edges.map((edge, i) => {
             return <BlockPost to={edge.node.fields.slug} key={i}>
               <h6>{edge.node.frontmatter.title}</h6>
+              <DateLine>{formatAsDate(edge.node.frontmatter.date)}</DateLine>
               <p>{edge.node.frontmatter.lead}</p>
             </BlockPost>
           })
