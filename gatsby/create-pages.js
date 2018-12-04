@@ -67,7 +67,6 @@ module.exports = async ({graphql, actions}) => {
       previous = allMarkdown.data.posts.edges[Math.floor(Math.random() * allMarkdown.data.posts.edges.length)]
     }
 
-
     createPage({
       path: slug,
       component: path.resolve(`./src/templates/${layout || 'page'}.tsx`),

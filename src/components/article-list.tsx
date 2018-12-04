@@ -109,12 +109,16 @@ export const ArticleList = ({articles}: {articles: {
 }
 
 export const ArticleEntry = ({article}: {article: PostDetails}) => {
+  if(!article){
+    return <div></div>
+  }
+
   return <Article layout={article.fields.layout}>
-  <h3><Link to={article.fields.slug}>{article.frontmatter.title}</Link></h3>
-  <h4>{format(article.fields.date, 'Do MMMM YYYY')}</h4>
-  <p>{article.frontmatter.lead}</p>
-  <TagList tags={article.frontmatter.tags} />
-</Article>
+    <h3><Link to={article.fields.slug}>{article.frontmatter.title}</Link></h3>
+    <h4>{format(article.fields.date, 'Do MMMM YYYY')}</h4>
+    <p>{article.frontmatter.lead}</p>
+    <TagList tags={article.frontmatter.tags} />
+  </Article>
 }
 
 export const TagList = ({tags}: {tags: PostDetails["frontmatter"]["tags"]}) => {

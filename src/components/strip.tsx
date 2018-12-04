@@ -120,11 +120,12 @@ export class Strip extends React.Component<StripProps, {expanded: boolean, width
 
     this.state = {
       expanded: (this.props.expanded ? true : false ),
-      width: window.innerWidth
+      width: 1000
     }
   }
 
   componentDidMount(){
+    this.setState({width: window.innerWidth})
     window.addEventListener('resize', () => this.onResize())
   }
 
