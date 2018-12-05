@@ -44,13 +44,13 @@ const BlockLink = styled(Link)`
     width: 100%;
     padding:0.2em;
     box-sizing:border-box;
-    margin:0;
-    margin-bottom:1.5%;
+    margin:0 !important;
+    margin-bottom:1.5% !important;
   }
 `
 
 const BlockPost = styled(BlockLink)`
-  height: 300px;
+  height: 40vh;
 `
 
 const Block = styled('div')`
