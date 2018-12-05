@@ -109,7 +109,8 @@ const IndexLayout: React.SFC<{expanded?: boolean, icon?: IconDefinition, color?:
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            {name: 'theme-color', content: (color ? color : colors.brand)}
+            {name: 'theme-color', content: (color ? color : colors.brand)},
+            {name: 'description', content: data.site.siteMetadata.description}
           ]}
           link={[
             {rel: 'icon', type: 'image/png', href: badge}

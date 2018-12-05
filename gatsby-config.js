@@ -84,6 +84,29 @@ module.exports = {
         siteUrl: 'https://arcath.net'
       }
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Adam Laycock',
+        short_name: 'arcath.net',
+        start_url: '/',
+        background_color: '#a55eea',
+        theme_color: '#a55eea',
+        display: 'minimal-ui',
+        icons: [
+          {
+            src: '/192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: '/512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      }
+    },
     'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
