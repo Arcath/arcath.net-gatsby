@@ -4,8 +4,9 @@ import {rgba} from 'polished'
 import {StaticQuery, graphql, Link} from 'gatsby'
 import {Helmet} from 'react-helmet'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faTwitter, IconDefinition, faGithub} from '@fortawesome/free-brands-svg-icons'
+import {faTwitter, IconDefinition, faGithub, faInstagram} from '@fortawesome/free-brands-svg-icons'
 import {format} from 'date-fns'
+import {OutboundLink} from 'gatsby-plugin-google-analytics'
 
 import '../styles/normalize'
 import {colors} from '../styles/variables'
@@ -33,9 +34,28 @@ const RecentLinks = styled('ul')`
 
 const SocialLinks = styled('div')`
   svg{
-    width:50px !important;
-    height:50px;
+    width:30px !important;
+    height:30px;
     padding-right:10px;
+    float:left;
+  }
+`
+
+const SocialLink = styled(OutboundLink)`
+  width:100%;
+  background-color:${(props: {color: string}) => props.color};
+  height:50px;
+  display:block;
+  color:#fff;
+  line-height:50px;
+  vertical-align:middle;
+  margin-bottom:10px;
+  padding:10px;
+  box-sizing:border-box;
+
+  span{
+    float:left;
+    margin-top:-10px;
   }
 `
 
@@ -48,6 +68,7 @@ interface StaticQueryProps{
         social: {
           twitter: string
           github: string
+          instagram: string
         }
       }
     }
@@ -80,6 +101,7 @@ const IndexLayout: React.SFC<{expanded?: boolean, icon?: IconDefinition, color?:
               social{
                 twitter
                 github
+                instagram
               }
             }
           }
@@ -115,6 +137,9 @@ const IndexLayout: React.SFC<{expanded?: boolean, icon?: IconDefinition, color?:
           link={[
             {rel: 'icon', type: 'image/png', href: badge}
           ]}
+          htmlAttributes={{
+            lang: 'en'
+          }}
         />
         <Strip expanded={expanded} title={data.site.siteMetadata.title} icon={icon} color={color} />
         {children}
@@ -122,8 +147,18 @@ const IndexLayout: React.SFC<{expanded?: boolean, icon?: IconDefinition, color?:
           <ThirdContainer>
             <h6>{data.site.siteMetadata.title}</h6>
             <SocialLinks>
-              <a href={data.site.siteMetadata.author.social.twitter}><FontAwesomeIcon icon={faTwitter} /></a>
-              <a href={data.site.siteMetadata.author.social.github}><FontAwesomeIcon icon={faGithub} /></a>
+              <SocialLink color={colors.brands.twitter} href={data.site.siteMetadata.author.social.twitter}>
+                <FontAwesomeIcon icon={faTwitter} />
+                <span>Twitter</span>
+              </SocialLink>
+              <SocialLink color={colors.brands.github} href={data.site.siteMetadata.author.social.github}>
+                <FontAwesomeIcon icon={faGithub} />
+                <span>GitHub</span>
+              </SocialLink>
+              <SocialLink color={colors.brands.instagram} href={data.site.siteMetadata.author.social.instagram}>
+                <FontAwesomeIcon icon={faInstagram} />
+                <span>Instagram</span>
+              </SocialLink>
             </SocialLinks>
           </ThirdContainer>
           <ThirdContainer>

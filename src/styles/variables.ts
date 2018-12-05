@@ -10,6 +10,7 @@ export const colors = {
   accent: '#ffb238',
   success: '#37b635',
   warning: '#ec1818',
+  red: '#fc5c65',
   ui: {
     bright: '#e0d6eb',
     light: '#f5f3f7',
@@ -24,7 +25,9 @@ export const colors = {
     twitter: '#1da1f2',
     linkedin: '#0077b5',
     reddit: '#ff4500',
-    whatsapp: '#128c7e'
+    whatsapp: '#128c7e',
+    github: '#24292e',
+    instagram: '#9d7cbf'
   }
 }
 

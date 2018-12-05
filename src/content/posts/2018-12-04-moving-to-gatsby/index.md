@@ -23,11 +23,6 @@ I had a list of requirements before I started the project which were as follows:
 
 I think I've met all those targets...
 
-I'm going to make the same pledge I always do when I update my blog and that is to write more and post more content. I have quite a library of photos taken on my Nikon D3300 that I'd like to share.
-
-[[fullWidthImage]]
-| ![More Photography](./photography.jpg)
-
 ## Why not a WordPress theme.
 
 This is a genuine question, I am a WordPress developer and making themes is a big part of my work with WordPress. For me WordPress and PHP are something I _have_ to work with, I enjoy it but if I had a choice I would drop it in favour of something else. I also prefer making my front-ends in React which isn't easily shoe-horned into WordPress.
@@ -68,6 +63,11 @@ This is the first time I've given styled components a real go and they are a hug
 
 I've gone of a layout that prioritises the content in a _Medium_ like way. My old site had too many widgets and fluff around the content and I didn't really need it. This also includes the Google & Amazon ads that were in the sidebar. I was trying to monetize the site but I wasn't making any income from it.
 
+I'm going to make the same pledge I always do when I update my blog and that is to write more and post more content. I have quite a library of photos taken on my Nikon D3300 that I'd like to share.
+
+[[fullWidthImage]]
+| ![More Photography](./photography.jpg)
+
 ## Gatsby
 
 Gatsby took some wrangling, I think I was held back by thinking of it as Jekyll written in javascript, its not. It's so much more.
@@ -78,3 +78,4 @@ Gatsby uses Graphql to provide data to the templates which can be a little obscu
 
 The source of this site is available on GitHub if you want to have a look at it.
 
+I've found the site created by Gatsby is insanely fast, not just _static HTML_ fast, somehow even faster. I'm using some gatsby plugins to handle the images and performance which are doing some pretty incredible things. Most stuff has a gatsby plugin that _just works_, a dash of config from me and I've got a whole system running without me having to do any actual coding.

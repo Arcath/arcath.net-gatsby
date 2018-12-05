@@ -11,7 +11,7 @@ interface ShareButtonsProps{
   title: string
 }
 
-const ShareButton = styled('div')`
+export const ShareButton = styled('div')`
   width:40px;
   line-height:40px;
   background-color:${(props: {color: string}) => props.color};

@@ -11,7 +11,8 @@ module.exports = {
       email: 'adam@arcath.net',
       social: {
         twitter: 'https://www.twitter.com/ArcathWhitefall',
-        github: 'https://www.github.com/Arcath'
+        github: 'https://www.github.com/Arcath',
+        instagram: 'https://www.instagram.com/arcathwhitefall/'
       }
     }
   },
