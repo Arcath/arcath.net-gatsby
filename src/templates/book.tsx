@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {graphql} from 'gatsby'
 import {faBook} from '@fortawesome/free-solid-svg-icons'
+import {OutboundLink} from 'gatsby-plugin-google-analytics'
 
 import {formatAsDate, PageTitle} from '../utils'
 
@@ -38,7 +39,7 @@ const BookTemplate: React.SFC<{
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
       <div dangerouslySetInnerHTML={{__html: post.html}} />
       <p>
-        <a href={post.frontmatter.link}>Buy on Amazon</a><br />
+        <OutboundLink href={post.frontmatter.link}>Buy on Amazon</OutboundLink><br />
         <small>Following this link and making a purchase supports this site.</small>
       </p>
       <ShareButtons url={location.href} title={post.frontmatter.title} />

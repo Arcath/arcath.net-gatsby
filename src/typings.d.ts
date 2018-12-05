@@ -33,6 +33,12 @@ declare module 'react-dynamic-swiper'{
   export const Slide: any
 }
 
+declare module 'gatsby-plugin-google-analytics'{
+  export const OutboundLink: React.ComponentClass<{
+    href: string
+  }>
+}
+
 interface PostDetails{
   frontmatter: {
     title: string
