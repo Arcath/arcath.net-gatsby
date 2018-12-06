@@ -179,10 +179,11 @@ const IndexLayout: React.SFC<{expanded?: boolean, icon?: IconDefinition, color?:
           <ThirdContainer>
             <h6>Disclaimer</h6>
             <p>All content is my own unless otherwise stated.</p>
+            <p>My content is licensed under the <OutboundLink href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</OutboundLink> license</p>
             <p>
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <OutboundLink href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
                 <img src={cc} alt="cc by-nc-sa" />
-              </a>
+              </OutboundLink>
             </p>
           </ThirdContainer>
         </Footer>
