@@ -132,7 +132,8 @@ const IndexLayout: React.SFC<{expanded?: boolean, icon?: IconDefinition, color?:
           title={data.site.siteMetadata.title}
           meta={[
             {name: 'theme-color', content: (color ? color : colors.brand)},
-            {name: 'description', content: data.site.siteMetadata.description}
+            {name: 'description', content: data.site.siteMetadata.description},
+            {name: 'google-site-verification', content: 'qi2oRAc2fmvBL1qOVY4CgICdWCmZZJhKtkzgd1knYG4'}
           ]}
           link={[
             {rel: 'icon', type: 'image/png', href: badge}
