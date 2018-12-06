@@ -4,7 +4,7 @@ import {rgba} from 'polished'
 import {StaticQuery, graphql, Link} from 'gatsby'
 import {Helmet} from 'react-helmet'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faTwitter, IconDefinition, faGithub, faInstagram} from '@fortawesome/free-brands-svg-icons'
+import {faTwitter, IconDefinition, faGithub, faInstagram, faYoutube} from '@fortawesome/free-brands-svg-icons'
 import {format} from 'date-fns'
 import {OutboundLink} from 'gatsby-plugin-google-analytics'
 
@@ -69,6 +69,7 @@ interface StaticQueryProps{
           twitter: string
           github: string
           instagram: string
+          youtube: string
         }
       }
     }
@@ -102,6 +103,7 @@ const IndexLayout: React.SFC<{expanded?: boolean, icon?: IconDefinition, color?:
                 twitter
                 github
                 instagram
+                youtube
               }
             }
           }
@@ -159,6 +161,10 @@ const IndexLayout: React.SFC<{expanded?: boolean, icon?: IconDefinition, color?:
               <SocialLink color={colors.brands.instagram} href={data.site.siteMetadata.author.social.instagram}>
                 <FontAwesomeIcon icon={faInstagram} />
                 <span>Instagram</span>
+              </SocialLink>
+              <SocialLink color={colors.brands.youtube} href={data.site.siteMetadata.author.social.youtube}>
+                <FontAwesomeIcon icon={faYoutube} />
+                <span>YouTube</span>
               </SocialLink>
             </SocialLinks>
           </ThirdContainer>

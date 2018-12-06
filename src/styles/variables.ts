@@ -27,7 +27,8 @@ export const colors = {
     reddit: '#ff4500',
     whatsapp: '#128c7e',
     github: '#24292e',
-    instagram: '#9d7cbf'
+    instagram: '#9d7cbf',
+    youtube: '#f00'
   }
 }
 

@@ -12,7 +12,8 @@ module.exports = {
       social: {
         twitter: 'https://www.twitter.com/ArcathWhitefall',
         github: 'https://www.github.com/Arcath',
-        instagram: 'https://www.instagram.com/arcathwhitefall/'
+        instagram: 'https://www.instagram.com/arcathwhitefall/',
+        youtube: 'https://www.youtube.com/channel/UCl1Mn3_rVPbheyk_aOXFrSA'
       }
     }
   },
@@ -112,6 +113,29 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet'
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        exclude: [],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+        }`
+      }
+    }
   ]
 }
