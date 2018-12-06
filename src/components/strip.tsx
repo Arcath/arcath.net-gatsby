@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faNewspaper, faChevronCircleDown, IconDefinition} from '@fortawesome/free-solid-svg-icons'
+import {faNewspaper, faChevronCircleDown, IconDefinition, faSearch} from '@fortawesome/free-solid-svg-icons'
 import {Link, StaticQuery, graphql} from 'gatsby'
 import {darken} from 'polished'
 import {Swiper, Slide} from 'react-dynamic-swiper'
@@ -117,6 +117,25 @@ const DateLine = styled('p')`
   font-weight:200;
 `
 
+const SearchButton = styled(Link)`
+  float:right;
+  margin-top:3vh;
+  width:4vh;
+  height:4vh;
+  cursor:pointer;
+  color:${colors.white};
+  margin-right:3vh;
+
+  @media(max-width: ${getEmSize(breakpoints.sm)}){
+    margin-right:0;
+  }
+
+  svg{
+    width:100% !important;
+    height:100%;
+  }
+`
+
 type StripProps = {expanded?: boolean, title: string, icon?: IconDefinition, color?: string}
 
 export class Strip extends React.Component<StripProps, {expanded: boolean, width: number}>{
@@ -157,6 +176,7 @@ export class Strip extends React.Component<StripProps, {expanded: boolean, width
       }} >
         <FontAwesomeIcon icon={faChevronCircleDown} />
       </Expand>
+      <SearchButton to="/search"><FontAwesomeIcon icon={faSearch} /></SearchButton>
     </Container>
     <Container>
       <BlockLink to="/">
