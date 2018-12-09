@@ -73,7 +73,7 @@ export default PostTemplate
 const syndication = (syndication: {
   medium: string
 }) => {
-  if(Object.keys(syndication).length === 0){
+  if(!syndication || Object.keys(syndication).length === 0){
     return ''
   }
 
