@@ -4,6 +4,8 @@ lead: If you want more control and better performance robocopy is the way to go.
 date: 2018-12-08T21:00:00Z
 tags:
  - Windows
+syndication:
+  medium: https://medium.com/@arcathwhitefall/robocopy-the-best-copying-tool-you-already-have-58e615bcdfdf
 ---
 Robocopy is an amazing tool that is built into Windows. If your running Windows 10 you already have it! Just fire up a command prompt and your away.
 
