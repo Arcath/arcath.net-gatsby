@@ -65,6 +65,7 @@
     "react-helmet": "^5.2.0",
     "react-masonry-component": "^6.2.1",
     "react-share": "^2.4.0",
+    "react-waypoint": "^8.1.0",
     "styled-attributes": "0.0.3",
     "typeface-martel": "0.0.54",
     "typeface-montserrat": "0.0.54",

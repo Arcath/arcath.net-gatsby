@@ -2,6 +2,7 @@ import * as React from 'react'
 import {graphql} from 'gatsby'
 import {Helmet} from 'react-helmet'
 import {OutboundLink} from 'gatsby-plugin-google-gtag'
+import Waypoint from 'react-waypoint'
 
 import {formatAsDate, PageTitle} from '../utils'
 
@@ -42,6 +43,20 @@ const PostTemplate: React.SFC<{
 }> = ({data, location}) => {
   let post = data.markdownRemark
 
+  let read = false
+
+  const handleWaypoint = () => {
+    if(!read){
+      let w = window as any
+      w.gtag('event', 'finish', {
+        event_category: 'Finish Article',
+        event_label: post.frontmatter.title
+      })
+    }
+
+    read = true
+  }
+
   return <IndexLayout color={colors.post}>
     <PageTitle chunks={[post.frontmatter.title]} />
     <Helmet
@@ -57,6 +72,7 @@ const PostTemplate: React.SFC<{
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
       <TagList tags={post.frontmatter.tags} />
       <div dangerouslySetInnerHTML={{__html: post.html}} />
+      <Waypoint onEnter={handleWaypoint} />
       <ShareButtons url={location.href} title={post.frontmatter.title} />
       {syndication(post.frontmatter.syndication)}
     </ContentContainer>
