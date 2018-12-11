@@ -6,7 +6,7 @@ import {Helmet} from 'react-helmet'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTwitter, IconDefinition, faGithub, faInstagram, faYoutube} from '@fortawesome/free-brands-svg-icons'
 import {format} from 'date-fns'
-import {OutboundLink} from 'gatsby-plugin-google-analytics'
+import {OutboundLink} from 'gatsby-plugin-google-gtag'
 
 import '../styles/normalize'
 import {colors} from '../styles/variables'

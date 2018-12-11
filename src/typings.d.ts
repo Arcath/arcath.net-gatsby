@@ -33,7 +33,7 @@ declare module 'react-dynamic-swiper'{
   export const Slide: any
 }
 
-declare module 'gatsby-plugin-google-analytics'{
+declare module 'gatsby-plugin-google-gtag'{
   export const OutboundLink: React.ComponentClass<{
     href: string
   }>

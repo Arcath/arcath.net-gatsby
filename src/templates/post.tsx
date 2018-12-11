@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {graphql} from 'gatsby'
 import {Helmet} from 'react-helmet'
-import {OutboundLink} from 'gatsby-plugin-google-analytics'
+import {OutboundLink} from 'gatsby-plugin-google-gtag'
 
 import {formatAsDate, PageTitle} from '../utils'
 

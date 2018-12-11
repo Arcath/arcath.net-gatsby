@@ -19,10 +19,19 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: 'UA-75492019-1'
-      }
+        trackingIds: [
+          "UA-75492019-1"
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+        },
+        pluginConfig: {
+          head: false,
+          respectDNT: true
+        },
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
