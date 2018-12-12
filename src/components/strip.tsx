@@ -179,11 +179,11 @@ export class Strip extends React.Component<StripProps, {expanded: boolean, width
       <SearchButton to="/search"><FontAwesomeIcon icon={faSearch} /></SearchButton>
     </Container>
     <Container>
-      <BlockLink to="/">
-        Home
-      </BlockLink>
       <BlockLink to='/about'>
         About
+      </BlockLink>
+      <BlockLink to="/projects">
+        Projects
       </BlockLink>
       <BlockLink to='/contact'>
         Contact

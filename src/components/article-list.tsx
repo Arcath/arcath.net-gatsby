@@ -15,7 +15,7 @@ export const Tag = styled(Link)`
   padding:3px;
 `
 
-const Article = styled('div')`
+export const Article = styled('div')`
   float:left;
   border-top:5px solid ${(props: {layout: string}) => {
     switch(props.layout){
@@ -23,6 +23,8 @@ const Article = styled('div')`
         return colors.note
       case 'book':
         return colors.book
+      case 'project':
+        return colors.project
       default:
       return colors.post
     }
@@ -49,6 +51,8 @@ const Article = styled('div')`
           return colors.note
         case 'book':
           return colors.book
+        case 'project':
+          return colors.project
         default:
         return colors.post
       }
@@ -62,6 +66,8 @@ const Article = styled('div')`
           return colors.note
         case 'book':
           return colors.book
+        case 'project':
+          return colors.project
         default:
         return colors.post
       }

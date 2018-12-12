@@ -5,6 +5,7 @@ export const colors = {
   book: '#4b7bec',
   note: '#26de81',
   post: '#fd9644',
+  project: '#4b6584',
   sidebar: '#ebf1ff',
   lilac: '#9d7cbf',
   accent: '#ffb238',

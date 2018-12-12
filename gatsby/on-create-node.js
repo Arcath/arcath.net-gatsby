@@ -39,6 +39,10 @@ module.exports = ({node, actions, getNode}) => {
           let matches = PROJECTS_PATH_SLUG_PATTERN.exec(relativePath)
 
           slug =  '/projects/' + [matches[1]].join('/')
+
+          if(!layout){
+            layout = 'project'
+          }
         }
 
         if(relativePath.includes('books')){
