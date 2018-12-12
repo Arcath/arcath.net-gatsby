@@ -185,8 +185,8 @@ export class Strip extends React.Component<StripProps, {expanded: boolean, width
       <BlockLink to='/about'>
         About
       </BlockLink>
-      <BlockLink to='/articles'>
-        Articles
+      <BlockLink to='/contact'>
+        Contact
       </BlockLink>
     </Container>
     <Container>
@@ -260,6 +260,9 @@ export class Strip extends React.Component<StripProps, {expanded: boolean, width
     <Container>
       <BlockLink to='/articles/featured'>
         More Featured
+      </BlockLink>
+      <BlockLink to='/articles'>
+        All Articles
       </BlockLink>
       <BlockLink to='/articles/screeps'>
         Screeps
