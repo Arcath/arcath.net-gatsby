@@ -48,10 +48,12 @@ const PostTemplate: React.SFC<{
   const handleWaypoint = () => {
     if(!read){
       let w = window as any
-      w.gtag('event', 'finish', {
-        event_category: 'Finish Article',
-        event_label: post.frontmatter.title
-      })
+      if(w.gtag){
+        w.gtag('event', 'finish', {
+          event_category: 'Finish Article',
+          event_label: post.frontmatter.title
+        })
+      }
     }
 
     read = true
