@@ -5,6 +5,8 @@ date: 2019-01-19T20:00:00Z
 tags:
  - Netlify
  - Gatsby
+syndication:
+  dev: https://dev.to/arcath/netlify-cms-on-the-filesystem-with-gatsby-2lge
 ---
 I was looking at [Netlify CMS](https://www.netlifycms.org/) for a website I was building and I wanted to test it before I put code to repo. Unfortunatley by default Netlify CMS will only let you use git as a backend which is great once the site is launched but when I want to test the CMS or dratically change the config the only way to test it would be to commit code that _should_ work and then hope. This leaves a bad taste in my mouth, if code is hitting the repo it should pass tests so comitting something that on paper should work doesn't feel right to me.
 

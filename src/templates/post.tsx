@@ -26,6 +26,7 @@ const PostTemplate: React.SFC<{
         lead: string
         syndication: {
           medium: string
+          dev: string
         }
       }
     }
@@ -65,7 +66,7 @@ const PostTemplate: React.SFC<{
       meta={[
         {property: 'og:title', content: post.frontmatter.title},
         {property: 'og:description', content: post.frontmatter.lead},
-        {property: 'og:site_name', contnet: data.site.siteMetadata.title},
+        {property: 'og:site_name', content: data.site.siteMetadata.title},
         {property: 'og:image', content: badge}
       ]}
     />
@@ -90,14 +91,18 @@ export default PostTemplate
 
 const syndication = (syndication: {
   medium: string
+  dev: string
 }) => {
   if(!syndication || Object.keys(syndication).length === 0){
     return ''
   }
 
+  console.dir(syndication)
+
   return <div style={{clear: 'both'}}>
     <h3>Syndication</h3>
-    <OutboundLink href={syndication.medium}>Medium</OutboundLink>
+    {syndication.medium ? <OutboundLink href={syndication.medium}>Medium</OutboundLink> : '' }
+    {syndication.dev ? <OutboundLink href={syndication.dev}>Dev.to</OutboundLink> : ''}
   </div>
 }
 
@@ -118,6 +123,7 @@ export const query = graphql`
         lead
         syndication{
           medium
+          dev
         }
       }
     }
