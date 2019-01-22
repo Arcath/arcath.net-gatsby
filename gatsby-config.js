@@ -180,6 +180,70 @@ module.exports = {
           },
         },
       },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign(
+                  {},
+                  {
+                    title: edge.node.frontmatter.title || 'New post by Adam Laycock',
+                    description: edge.node.fields.lead || edge.node.excerpt,
+                    date: edge.node.fields.date,
+                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    custom_elements: [{ 'content:encoded': edge.node.html }]
+                  }
+                )
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  limit: 10,
+                  filter: {
+                    fields: {slug: {regex: "/^\/20/"}}
+                  },
+                  sort: {fields: [fields___date], order: DESC}
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields {
+                        slug
+                        lead
+                        date
+                      }
+                      frontmatter {
+                        title
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            feedTitle: 'All posts by Adam Laycock'
+          }
+        ]
+      }
     }
   ]
 }
