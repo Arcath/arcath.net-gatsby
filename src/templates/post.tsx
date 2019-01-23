@@ -67,8 +67,8 @@ const PostTemplate: React.SFC<{
         {property: 'og:title', content: post.frontmatter.title},
         {property: 'og:description', content: post.frontmatter.lead},
         {property: 'og:site_name', content: data.site.siteMetadata.title},
-        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/static/social/twitter-${post.id}.png`},
-        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/static/social/facebook-${post.id}.png`}
+        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/social/twitter-${post.id}.png`},
+        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/social/facebook-${post.id}.png`}
       ]}
     />
     <ContentContainer color={colors.post}>
