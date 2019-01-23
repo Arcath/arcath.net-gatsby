@@ -11,6 +11,7 @@ module.exports = {
       email: 'adam@arcath.net',
       social: {
         twitter: 'https://www.twitter.com/ArcathWhitefall',
+        twitterHandle: '@ArcathWhitefall',
         github: 'https://www.github.com/Arcath',
         instagram: 'https://www.instagram.com/arcathwhitefall/',
         youtube: 'https://www.youtube.com/channel/UCl1Mn3_rVPbheyk_aOXFrSA'
