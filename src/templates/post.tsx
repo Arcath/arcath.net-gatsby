@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {graphql} from 'gatsby'
-import {Helmet} from 'react-helmet'
 import {OutboundLink} from 'gatsby-plugin-google-gtag'
 import Waypoint from 'react-waypoint'
 
@@ -10,6 +9,7 @@ import {ContentContainer, Container} from '../components/container'
 import {colors} from '../styles/variables'
 import {ArticleEntry, TagList, DateHeading} from '../components/article-list'
 import {ShareButtons} from '../components/share'
+import {OpenGraphTags} from '../components/open-graph'
 
 import IndexLayout from '../layouts/index'
 
@@ -62,15 +62,7 @@ const PostTemplate: React.SFC<{
 
   return <IndexLayout color={colors.post}>
     <PageTitle chunks={[post.frontmatter.title]} />
-    <Helmet
-      meta={[
-        {property: 'og:title', content: post.frontmatter.title},
-        {property: 'og:description', content: post.frontmatter.lead},
-        {property: 'og:site_name', content: data.site.siteMetadata.title},
-        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/social/twitter-${post.id}.png`},
-        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/social/facebook-${post.id}.png`}
-      ]}
-    />
+    <OpenGraphTags title={post.frontmatter.title} lead={post.frontmatter.lead} id={post.id} />
     <ContentContainer color={colors.post}>
       <h2>{post.frontmatter.title}</h2>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
@@ -97,8 +89,6 @@ const syndication = (syndication: {
   if(!syndication || Object.keys(syndication).length === 0){
     return ''
   }
-
-  console.dir(syndication)
 
   return <div style={{clear: 'both'}}>
     <h3>Syndication</h3>

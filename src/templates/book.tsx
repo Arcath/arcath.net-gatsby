@@ -2,7 +2,6 @@ import * as React from 'react'
 import {graphql} from 'gatsby'
 import {faBook} from '@fortawesome/free-solid-svg-icons'
 import {OutboundLink} from 'gatsby-plugin-google-gtag'
-import {Helmet} from 'react-helmet'
 
 import {formatAsDate, PageTitle} from '../utils'
 
@@ -11,6 +10,7 @@ import {ContentContainer, Container} from '../components/container'
 import {colors} from'../styles/variables'
 import {ShareButtons} from '../components/share'
 import {ArticleEntry, DateHeading, ArticleHeading} from '../components/article-list'
+import {OpenGraphTags} from '../components/open-graph'
 
 import IndexLayout from '../layouts/index'
 
@@ -42,14 +42,7 @@ const BookTemplate: React.SFC<{
   let post = data.markdownRemark
 
   return <IndexLayout color={colors.book} icon={faBook}>
-    <Helmet
-      meta={[
-        {property: 'og:title', content: post.frontmatter.title},
-        {property: 'og:site_name', content: data.site.siteMetadata.title},
-        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/social/twitter-${post.id}.png`},
-        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/social/facebook-${post.id}.png`}
-      ]}
-    />
+    <OpenGraphTags title={post.frontmatter.title} lead="" id={post.id} />
     <ContentContainer color={colors.book}>
       <PageTitle chunks={[post.frontmatter.title, 'Books']} />
       <ArticleHeading>{post.frontmatter.title} <small>by {post.frontmatter.author}</small></ArticleHeading>

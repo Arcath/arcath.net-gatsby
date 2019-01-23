@@ -7,17 +7,20 @@ import {ContentContainer, Container} from '../components/container'
 import {colors} from '../styles/variables'
 import {ArticleEntry, TagList, DateHeading} from '../components/article-list'
 import {ShareButtons} from '../components/share'
+import {OpenGraphTags} from '../components/open-graph'
 
 import IndexLayout from '../layouts/index'
 
 const NoteTemplate: React.SFC<{
   data: {
     markdownRemark: {
+      id: string
       html: string
       frontmatter: {
         title: string
         date: string
         tags: string[]
+        lead: string
       }
     }
 
@@ -30,6 +33,7 @@ const NoteTemplate: React.SFC<{
 
   return <IndexLayout color={colors.note}>
     <PageTitle chunks={[post.frontmatter.title]} />
+    <OpenGraphTags title={post.frontmatter.title} lead={post.frontmatter.lead} id={post.id} />
     <ContentContainer color={colors.note}>
       <h2>{post.frontmatter.title}</h2>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
@@ -50,11 +54,13 @@ export default NoteTemplate
 export const query = graphql`
   query NoteTemplateQuery($slug: String!, $next: String!, $previous: String!){
     markdownRemark(fields: { slug: {eq: $slug}}){
+      id
       html
       frontmatter{
         title
         date
         tags
+        lead
       }
     }
 
