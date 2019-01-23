@@ -13,11 +13,10 @@ import {ShareButtons} from '../components/share'
 
 import IndexLayout from '../layouts/index'
 
-import badge from '../static/img/badge.png'
-
 const PostTemplate: React.SFC<{
   data: {
     markdownRemark: {
+      id: string
       html: string
       frontmatter: {
         title: string
@@ -34,6 +33,7 @@ const PostTemplate: React.SFC<{
     site: {
       siteMetadata: {
         title: string
+        siteUrl: string
       }
     }
 
@@ -67,7 +67,8 @@ const PostTemplate: React.SFC<{
         {property: 'og:title', content: post.frontmatter.title},
         {property: 'og:description', content: post.frontmatter.lead},
         {property: 'og:site_name', content: data.site.siteMetadata.title},
-        {property: 'og:image', content: badge}
+        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/static/social/twitter-${post.id}.png`},
+        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/static/social/facebook-${post.id}.png`}
       ]}
     />
     <ContentContainer color={colors.post}>
@@ -111,10 +112,12 @@ export const query = graphql`
     site{
       siteMetadata{
         title
+        siteUrl
       }
     }
 
     markdownRemark(fields: { slug: {eq: $slug}}){
+      id
       html
       frontmatter{
         title

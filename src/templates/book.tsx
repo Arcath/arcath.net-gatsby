@@ -2,6 +2,7 @@ import * as React from 'react'
 import {graphql} from 'gatsby'
 import {faBook} from '@fortawesome/free-solid-svg-icons'
 import {OutboundLink} from 'gatsby-plugin-google-gtag'
+import {Helmet} from 'react-helmet'
 
 import {formatAsDate, PageTitle} from '../utils'
 
@@ -16,6 +17,7 @@ import IndexLayout from '../layouts/index'
 const BookTemplate: React.SFC<{
   data: {
     markdownRemark: {
+      id: string
       html: string
       frontmatter: {
         title: string
@@ -26,6 +28,13 @@ const BookTemplate: React.SFC<{
     }
     nextPost: PostDetails
     previousPost: PostDetails
+
+    site: {
+      siteMetadata: {
+        title: string
+        siteUrl: string
+      }
+    }
   }
 
   location: LocationProps
@@ -33,6 +42,14 @@ const BookTemplate: React.SFC<{
   let post = data.markdownRemark
 
   return <IndexLayout color={colors.book} icon={faBook}>
+    <Helmet
+      meta={[
+        {property: 'og:title', content: post.frontmatter.title},
+        {property: 'og:site_name', content: data.site.siteMetadata.title},
+        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/static/social/twitter-${post.id}.png`},
+        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/static/social/facebook-${post.id}.png`}
+      ]}
+    />
     <ContentContainer color={colors.book}>
       <PageTitle chunks={[post.frontmatter.title, 'Books']} />
       <ArticleHeading>{post.frontmatter.title} <small>by {post.frontmatter.author}</small></ArticleHeading>
@@ -56,6 +73,13 @@ export default BookTemplate
 
 export const query = graphql`
   query BookTemplateQuery($slug: String!, $next: String!, $previous: String!){
+    site{
+      siteMetadata{
+        title
+        siteUrl
+      }
+    }
+
     markdownRemark(fields: { slug: {eq: $slug}}){
       html
       frontmatter{
