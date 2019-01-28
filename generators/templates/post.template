@@ -1,0 +1,6 @@
+---
+title: {{title}}
+lead: {{lead}}
+date: {{date}}
+{{tags}}
+---
