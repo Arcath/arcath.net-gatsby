@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "https://arcath.net/*"
+  to = "https://www.arcath.net/:splat"
+  force = true
