@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Adam Laycock',
     description: 'IT Engineer, Developer & Blogger.',
-    siteUrl: 'https://www.arcath.net',
+    siteUrl: 'https://arcath.net',
     author: {
       name: 'Adam Laycock',
       about: 'I am an IT Engineer & Software Developer from the North West of England. I work for a small company supporting Primary Schools in Lancashire & Cumbria. Through this work I build websites and other software.',
