@@ -4,6 +4,8 @@ lead: Automatically creating social images for Gatsby content.
 date: 2019-01-23T13:30:00Z
 tags:
   - Gatsby
+syndication:
+  dev: https://dev.to/arcath/generated-social-images-49ca
 ---
 I follow [dev.to](https://dev.to) who have some great images on their tweets that are bascially just the post title and author. I really like the way it looks and want to try something here.
 
