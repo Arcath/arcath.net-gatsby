@@ -21,7 +21,7 @@ This function creates an image for both Facebook and Twitter that I link to thro
 
 The images themselves are nothing special just the content background colour, the sites icon, the post date, and the title. Take the one for this post:
 
-![This posts image](/social/twitter-4cb924dd-7ae2-58d6-b6dc-49eea200db2d.png)
+![This posts image](./social-image.png)
 
 The code to do this is pretty simple and can be found in the sites source [here](https://github.com/Arcath/arcath.net-gatsby/blob/master/gatsby/create-page-image.js). I was surprised how easy this turned out to be.
 
