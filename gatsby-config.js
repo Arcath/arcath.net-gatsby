@@ -14,7 +14,8 @@ module.exports = {
         twitterHandle: '@ArcathWhitefall',
         github: 'https://www.github.com/Arcath',
         instagram: 'https://www.instagram.com/arcathwhitefall/',
-        youtube: 'https://www.youtube.com/channel/UCl1Mn3_rVPbheyk_aOXFrSA'
+        youtube: 'https://www.youtube.com/channel/UCl1Mn3_rVPbheyk_aOXFrSA',
+        dev: 'https://dev.to/arcath'
       }
     }
   },

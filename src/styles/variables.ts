@@ -29,7 +29,8 @@ export const colors = {
     whatsapp: '#128c7e',
     github: '#24292e',
     instagram: '#9d7cbf',
-    youtube: '#f00'
+    youtube: '#f00',
+    dev: '#0a0a0a'
   }
 }
 
