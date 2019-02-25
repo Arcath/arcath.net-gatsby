@@ -26,6 +26,8 @@ backend:
 
 Enter [netlify-cms-backend-fs](https://www.npmjs.com/package/netlify-cms-backend-fs).
 
+> Update 25/2/19 `netlify-cms-backend-fs` is in beta and there may/will be breaking changes eventually.
+
 To get this working in Gatsby I needed to make a couple of edits to my `gatsby-config.js` to load the fs-api and configure `gatsby-plugin-netlify-cms` so that it uses the fs backend.
 
 First off the entry in the `plugins` array needs changing to this:
