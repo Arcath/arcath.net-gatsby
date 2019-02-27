@@ -28,6 +28,6 @@ module.exports = {
     }
   },
   dashCase: (string) => {
-    return string.replace(' ', '-').toLowerCase()
+    return string.replace(/ /g, '-').toLowerCase()
   }
 }
