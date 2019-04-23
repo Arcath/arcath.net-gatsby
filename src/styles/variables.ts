@@ -1,5 +1,43 @@
 /* tslint:disable:max-line-length */
 
+export const Colors = {
+  primary: {
+    white: '#fff',
+    black: '#444',
+    gray: '#535c68',
+    background: '#16161d'
+  },
+  brand: {
+    light: '#686de0',
+    dark: '#4834d4'
+  },
+  accents: {
+    green: '#badc58',
+    purple: '#e056fd',
+    orange: '#f0932b',
+    red: '#eb4d4b'
+  }
+}
+
+export const Dimensions = {
+  lightsource: '-25deg',
+  sizes: {
+    padding: 10,
+    margin: 10,
+    small: 100,
+    large: 200,
+  },
+  fontSizes: {
+    header: {
+      title: 25,
+      links: 15
+    }
+  },
+  fontWeights: {
+    light: 300
+  }
+}
+
 export const colors = {
   brand: '#a55eea',
   book: '#4b7bec',
@@ -36,7 +74,8 @@ export const colors = {
 
 export const fonts = {
   headings: 'Montserrat, sans-serif',
-  body: 'Martel, serif',
+  //body: 'Martel, serif',
+  body: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif',
   components: 'Open-Sans, sans-serif'
 }
 

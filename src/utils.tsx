@@ -1,4 +1,7 @@
 import * as React from 'react'
+import styled from '@emotion/styled'
+import {clearFix} from 'polished'
+
 
 import {format} from 'date-fns'
 
@@ -15,3 +18,11 @@ export const pageTitle = (chunks: string[]) => {
 export const PageTitle = ({chunks}: {chunks: string[]}) => {
   return <Helmet title={pageTitle(chunks)} />
 }
+
+export const keys = function<T extends Object>(o: T): (keyof T)[] {
+  return Object.keys(o) as any
+}
+
+export const Clear = styled('div')`
+  ${clearFix()}
+`

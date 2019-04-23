@@ -1,9 +1,8 @@
 import styled from '@emotion/styled'
 import {clearFix} from 'polished'
 
-import {breakpoints, widths, dimensions} from '../styles/variables'
+import {breakpoints, widths, dimensions, Colors} from '../styles/variables'
 import {getEmSize} from '../styles/mixins'
-import {Tag} from './article-list'
 
 export const Container = styled('div')`
   margin:auto;
@@ -33,16 +32,8 @@ export const Container = styled('div')`
 export const ContentContainer = styled(Container)`
   font-size:${dimensions.fontSize.body}px;
 
-  a{
-    color:${(props: {color: string}) => props.color};
-  }
-
-  ${Tag}{
-    background-color:${(props: {color: string}) => props.color};
-  }
-
   blockquote{
-    border-left-color:${(props: {color: string}) => props.color};
+    border-left-color:${Colors.brand.light};
   }
 `
 

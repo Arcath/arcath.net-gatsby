@@ -1,6 +1,6 @@
-import { injectGlobal } from 'emotion'
-import { dimensions, fonts, colors, breakpoints } from './variables'
-import { getEmSize } from './mixins'
+import {injectGlobal} from 'emotion'
+import {dimensions, fonts, Colors, breakpoints} from './variables'
+import {getEmSize} from './mixins'
 
 require('typeface-montserrat')
 require('typeface-open-sans')
@@ -29,21 +29,23 @@ injectGlobal`
     overflow-y: scroll;
     font-family: ${fonts.body};
     font-weight:200;
-    color: ${colors.black};
-    background-color: ${colors.white};
+    color: ${Colors.primary.white};
+    background-color: ${Colors.primary.background};
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     padding:0;
     margin:0;
+    line-height:23.5px;
   }
 
   a {
-    color: ${colors.brand};
+    color: ${Colors.brand.light};
     text-decoration: none;
+    transition: color 0.2s;
 
     &:hover,
     &:focus {
-
+      color: ${Colors.brand.dark};
     }
   }
 
@@ -64,7 +66,7 @@ injectGlobal`
   table {
     width: 100%;
     margin-bottom: 1rem;
-    border: 1px solid ${colors.ui.light};
+    border: 1px solid ${Colors.brand.light};
     font-size: 85%;
     border-collapse: collapse;
   }
@@ -72,7 +74,7 @@ injectGlobal`
   td,
   th {
     padding: .25rem .5rem;
-    border: 1px solid ${colors.ui.light};
+    border: 1px solid ${Colors.brand.light};
   }
 
   th {
@@ -82,12 +84,7 @@ injectGlobal`
   tbody {
     tr {
       &:nth-child(odd) {
-        td {
-          background-color: ${colors.ui.whisper};
-        }
-        tr {
-          background-color: ${colors.ui.whisper};
-        }
+
       }
     }
   }
@@ -95,7 +92,6 @@ injectGlobal`
   h1, h2, h3, h4, h5, h6 {
     margin-top: 1.414rem;
     margin-bottom: 1rem;
-    color: ${colors.black};
     font-weight: 600;
     line-height: ${dimensions.lineHeight.heading};
     text-rendering: optimizeLegibility;
@@ -125,7 +121,7 @@ injectGlobal`
   }
 
   strong {
-    color: ${colors.black};
+    color: ${Colors.primary.black};
   }
 
   ul,
@@ -147,14 +143,14 @@ injectGlobal`
     position: relative;
     margin: 1.5rem 0;
     border: 0;
-    border-top: 1px solid ${colors.ui.light};
+    border-top: 1px solid ${Colors.brand.light};
   }
 
   blockquote {
     margin: .8rem 0;
     padding: .5rem 1rem;
-    border-left: .25rem solid ${colors.ui.light};
-    color: ${colors.gray};
+    border-left: .25rem solid ${Colors.brand.light};
+    color: ${Colors.primary.gray};
 
     p {
       &:last-child {

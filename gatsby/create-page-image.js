@@ -2,22 +2,9 @@ const path = require('path')
 const JIMP = require('jimp')
 const format = require('date-fns/format')
 
-const colors = {
-  brand: '#a55eea',
-  book: '#4b7bec',
-  note: '#26de81',
-  post: '#fd9644',
-  project: '#4b6584',
-}
-
 module.exports = async function(type, node, id){
-  let color = colors[type] ? colors[type] : colors.brand
-
-  const logo = await JIMP.read(path.join(__dirname, '..', 'static', '192.png'))
-
-  await createImage(node, color, 600, 314, `twitter-${id}.png`, logo)
-  await createImage(node, color, 540, 282, `facebook-${id}.png`, logo)
-
+  await createImage(node, 600, 314, `twitter-${id}.png`)
+  await createImage(node, 540, 282, `facebook-${id}.png`)
 }
 
 async function asyncForEach(array, callback){
@@ -26,9 +13,8 @@ async function asyncForEach(array, callback){
   }
 }
 
-async function createImage(node, color, x, y, output, logo){
-  const image = await new JIMP(x, y, color)
-  await image.composite(logo, x - 200, y - 200)
+async function createImage(node, x, y, output){
+  const image = await JIMP.read(path.join(__dirname, '..', 'static', `social-${x}-${y}.png`))
 
   const font = await JIMP.loadFont(JIMP.FONT_SANS_32_BLACK)
 

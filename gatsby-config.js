@@ -15,7 +15,8 @@ module.exports = {
         github: 'https://www.github.com/Arcath',
         instagram: 'https://www.instagram.com/arcathwhitefall/',
         youtube: 'https://www.youtube.com/channel/UCl1Mn3_rVPbheyk_aOXFrSA',
-        dev: 'https://dev.to/arcath'
+        dev: 'https://dev.to/arcath',
+        medium: "https://medium.com/@arcathwhitefall"
       }
     }
   },
@@ -53,6 +54,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          `@weknow/gatsby-remark-twitter`,
           {
             resolve: 'gatsby-remark-responsive-iframe',
             options: {

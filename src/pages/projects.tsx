@@ -2,15 +2,14 @@ import * as React from 'react'
 import {StaticQuery, graphql, Link} from 'gatsby'
 import Masonry from 'react-masonry-component'
 
-import IndexLayout from '../layouts/index'
+import {MainLayout} from '../layouts/main'
 
 import {Container} from '../components/container'
 import {PageTitle} from '../utils'
 import {Article} from '../components/article-list'
-import {colors} from '../styles/variables'
 
 const ProjectsPage = () => {
-  return <IndexLayout color={colors.project}>
+  return <MainLayout>
     <PageTitle chunks={['Projects']} />
     <Container>
       <h2>Projects</h2>
@@ -90,7 +89,7 @@ const ProjectsPage = () => {
               <h3>{category}</h3>
               <Masonry>
                 {projectsPerCategory[category].map((project) => {
-                  return <Article layout="project">
+                  return <Article>
                     <h3><Link to={project.node.fields.slug}>{project.node.frontmatter.title}</Link></h3>
                     <h4>{project.node.frontmatter.year}</h4>
                     <p>{project.node.frontmatter.lead}</p>
@@ -102,7 +101,7 @@ const ProjectsPage = () => {
         }}
       />
     </Container>
-  </IndexLayout>
+  </MainLayout>
 }
 
 export default ProjectsPage

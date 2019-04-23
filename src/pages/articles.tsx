@@ -1,13 +1,15 @@
 import * as React from 'react'
 import {StaticQuery, graphql} from 'gatsby'
 
-import IndexLayout from '../layouts/index'
+import {MainLayout} from '../layouts/main'
 
 import {Container} from '../components/container'
 import {ArticleList} from '../components/article-list'
+import {PageTitle} from '../utils'
 
 const ArticlesPage = () => {
-  return <IndexLayout>
+  return <MainLayout>
+    <PageTitle chunks={['All Articles']} />
     <Container>
       <h2>Articles</h2>
       <StaticQuery
@@ -58,7 +60,7 @@ const ArticlesPage = () => {
         }}
       />
     </Container>
-  </IndexLayout>
+  </MainLayout>
 }
 
 export default ArticlesPage

@@ -4,8 +4,8 @@ import {graphql} from 'gatsby'
 import {Container, ContentContainer} from '../components/container'
 import {ArticleEntry} from '../components/article-list'
 
-import IndexLayout from '../layouts/index'
-import {colors} from '../styles/variables'
+import {MainLayout} from '../layouts/main'
+import {PageTitle} from '../utils'
 
 const PageTemplate: React.SFC<{
   data: {
@@ -22,8 +22,9 @@ const PageTemplate: React.SFC<{
 }> = ({data}) => {
   let page = data.markdownRemark
 
-  return <IndexLayout>
-    <ContentContainer color={colors.brand}>
+  return <MainLayout>
+    <PageTitle chunks={[page.frontmatter.title]} />
+    <ContentContainer>
       <h2>{page.frontmatter.title}</h2>
       <div dangerouslySetInnerHTML={{__html: page.html}} />
     </ContentContainer>
@@ -32,7 +33,7 @@ const PageTemplate: React.SFC<{
       <ArticleEntry article={data.previousPost} />
       <ArticleEntry article={data.nextPost} />
     </Container>
-  </IndexLayout>
+  </MainLayout>
 }
 
 export default PageTemplate

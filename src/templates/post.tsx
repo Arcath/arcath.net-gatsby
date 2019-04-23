@@ -1,17 +1,16 @@
 import * as React from 'react'
 import {graphql} from 'gatsby'
 import {OutboundLink} from 'gatsby-plugin-google-gtag'
-import Waypoint from 'react-waypoint'
+import {Waypoint} from 'react-waypoint'
 
 import {formatAsDate, PageTitle} from '../utils'
 
 import {ContentContainer, Container} from '../components/container'
-import {colors} from '../styles/variables'
 import {ArticleEntry, TagList, DateHeading} from '../components/article-list'
 import {ShareButtons} from '../components/share'
 import {OpenGraphTags} from '../components/open-graph'
 
-import IndexLayout from '../layouts/index'
+import {MainLayout} from '../layouts/main'
 
 const PostTemplate: React.SFC<{
   data: {
@@ -60,10 +59,10 @@ const PostTemplate: React.SFC<{
     read = true
   }
 
-  return <IndexLayout color={colors.post}>
+  return <MainLayout>
     <PageTitle chunks={[post.frontmatter.title]} />
     <OpenGraphTags title={post.frontmatter.title} lead={post.frontmatter.lead} id={post.id} />
-    <ContentContainer color={colors.post}>
+    <ContentContainer role="main">
       <h2>{post.frontmatter.title}</h2>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
       <TagList tags={post.frontmatter.tags} />
@@ -77,7 +76,7 @@ const PostTemplate: React.SFC<{
       <ArticleEntry article={data.previousPost} />
       <ArticleEntry article={data.nextPost} />
     </Container>
-  </IndexLayout>
+  </MainLayout>
 }
 
 export default PostTemplate

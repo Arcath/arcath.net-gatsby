@@ -1,12 +1,11 @@
 import * as React from 'react'
 import {graphql} from 'gatsby'
-import {faTag} from '@fortawesome/free-solid-svg-icons'
 
 import {ContentContainer} from '../components/container'
 import {ArticleList} from '../components/article-list'
 import {PageTitle} from '../utils'
 
-import IndexLayout from '../layouts/index'
+import {MainLayout} from '../layouts/main'
 import {colors} from '../styles/variables'
 
 const TagTemplate: React.SFC<{
@@ -34,13 +33,13 @@ const TagTemplate: React.SFC<{
   }
 }> = ({data, pageContext}) => {
 
-  return <IndexLayout icon={faTag}>
+  return <MainLayout>
     <PageTitle chunks={[pageContext.tag, 'Tags']} />
     <ContentContainer color={colors.brand}>
       <h2>{pageContext.tag} ({data.articles.edges.length})</h2>
       <ArticleList articles={data.articles} />
     </ContentContainer>
-  </IndexLayout>
+  </MainLayout>
 }
 
 export default TagTemplate

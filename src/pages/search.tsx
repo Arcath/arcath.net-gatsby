@@ -1,17 +1,18 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import IndexLayout from '../layouts/index'
+import {MainLayout} from '../layouts/main'
 
 import {Container} from '../components/container'
-import {fonts, colors} from '../styles/variables'
+import {fonts, Colors} from '../styles/variables'
 import {ArticleList} from '../components/article-list'
+import {PageTitle} from '../utils'
 
 const SearchBox = styled('input')`
   width:100%;
   padding:10px;
   font-family:${fonts.body};
-  border:1px ${colors.brand} solid;
+  border:1px ${Colors.brand.light} solid;
 `
 
 declare global{
@@ -92,7 +93,8 @@ class SearchPage extends React.Component<{}, {
   }
 
   render(){
-    return <IndexLayout>
+    return <MainLayout>
+      <PageTitle chunks={[this.state.query, 'Search']} />
       <Container>
         <h1>{this.searchTitle()}</h1>
         <SearchBox onChange={(e) => {
@@ -100,7 +102,7 @@ class SearchPage extends React.Component<{}, {
         }} />
         {this.results()}
       </Container>
-    </IndexLayout>
+    </MainLayout>
   }
 }
 

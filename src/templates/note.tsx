@@ -4,12 +4,11 @@ import {graphql} from 'gatsby'
 import {formatAsDate, PageTitle} from '../utils'
 
 import {ContentContainer, Container} from '../components/container'
-import {colors} from '../styles/variables'
 import {ArticleEntry, TagList, DateHeading} from '../components/article-list'
 import {ShareButtons} from '../components/share'
 import {OpenGraphTags} from '../components/open-graph'
 
-import IndexLayout from '../layouts/index'
+import {MainLayout} from '../layouts/main'
 
 const NoteTemplate: React.SFC<{
   data: {
@@ -31,10 +30,10 @@ const NoteTemplate: React.SFC<{
 }> = ({data, location}) => {
   let post = data.markdownRemark
 
-  return <IndexLayout color={colors.note}>
+  return <MainLayout>
     <PageTitle chunks={[post.frontmatter.title]} />
     <OpenGraphTags title={post.frontmatter.title} lead={post.frontmatter.lead} id={post.id} />
-    <ContentContainer color={colors.note}>
+    <ContentContainer>
       <h2>{post.frontmatter.title}</h2>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
       <TagList tags={post.frontmatter.tags} />
@@ -46,7 +45,7 @@ const NoteTemplate: React.SFC<{
       <ArticleEntry article={data.previousPost} />
       <ArticleEntry article={data.nextPost} />
     </Container>
-  </IndexLayout>
+  </MainLayout>
 }
 
 export default NoteTemplate

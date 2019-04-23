@@ -7,9 +7,10 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 import {Container, ContentContainer} from '../components/container'
 import {ArticleEntry} from '../components/article-list'
-import IndexLayout from '../layouts/index'
 import {colors} from '../styles/variables'
 import {PageTitle} from '../utils'
+
+import {MainLayout} from '../layouts/main'
 
 const Button = styled(OutboundLink)`
   display:block;
@@ -36,7 +37,7 @@ const ProjectTemplate: React.SFC<{
 }> = ({data}) => {
   let page = data.markdownRemark
 
-  return <IndexLayout color={colors.project}>
+  return <MainLayout>
     <PageTitle chunks={[page.frontmatter.title, 'Projects']} />
     <ContentContainer color={colors.project}>
       <h2>{page.frontmatter.title} ({page.frontmatter.year})</h2>
@@ -48,7 +49,7 @@ const ProjectTemplate: React.SFC<{
       <ArticleEntry article={data.previousPost} />
       <ArticleEntry article={data.nextPost} />
     </Container>
-  </IndexLayout>
+  </MainLayout>
 }
 
 export default ProjectTemplate

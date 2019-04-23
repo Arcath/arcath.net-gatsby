@@ -1,18 +1,15 @@
 import * as React from 'react'
 import {graphql} from 'gatsby'
-import {faBook} from '@fortawesome/free-solid-svg-icons'
 import {OutboundLink} from 'gatsby-plugin-google-gtag'
 
 import {formatAsDate, PageTitle} from '../utils'
 
-
 import {ContentContainer, Container} from '../components/container'
-import {colors} from'../styles/variables'
 import {ShareButtons} from '../components/share'
 import {ArticleEntry, DateHeading, ArticleHeading} from '../components/article-list'
 import {OpenGraphTags} from '../components/open-graph'
 
-import IndexLayout from '../layouts/index'
+import {MainLayout} from '../layouts/main'
 
 const BookTemplate: React.SFC<{
   data: {
@@ -41,9 +38,9 @@ const BookTemplate: React.SFC<{
 }> = ({data, location}) => {
   let post = data.markdownRemark
 
-  return <IndexLayout color={colors.book} icon={faBook}>
+  return <MainLayout>
     <OpenGraphTags title={post.frontmatter.title} lead="" id={post.id} />
-    <ContentContainer color={colors.book}>
+    <ContentContainer>
       <PageTitle chunks={[post.frontmatter.title, 'Books']} />
       <ArticleHeading>{post.frontmatter.title} <small>by {post.frontmatter.author}</small></ArticleHeading>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
@@ -59,7 +56,7 @@ const BookTemplate: React.SFC<{
       <ArticleEntry article={data.previousPost} />
       <ArticleEntry article={data.nextPost} />
     </Container>
-  </IndexLayout>
+  </MainLayout>
 }
 
 export default BookTemplate
