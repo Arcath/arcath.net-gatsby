@@ -7,6 +7,7 @@ import {ContentContainer, Container} from '../components/container'
 import {ArticleEntry, TagList, DateHeading} from '../components/article-list'
 import {ShareButtons} from '../components/share'
 import {OpenGraphTags} from '../components/open-graph'
+import {Content} from '../components/content'
 
 import {MainLayout} from '../layouts/main'
 
@@ -37,7 +38,7 @@ const NoteTemplate: React.SFC<{
       <h2>{post.frontmatter.title}</h2>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
       <TagList tags={post.frontmatter.tags} />
-      <div dangerouslySetInnerHTML={{__html: post.html}} />
+      <Content html={post.html} />
       <ShareButtons url={location.href} title={post.frontmatter.title} />
     </ContentContainer>
     <Container>

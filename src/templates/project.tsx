@@ -9,6 +9,7 @@ import {Container, ContentContainer} from '../components/container'
 import {ArticleEntry} from '../components/article-list'
 import {colors} from '../styles/variables'
 import {PageTitle} from '../utils'
+import {Content} from '../components/content'
 
 import {MainLayout} from '../layouts/main'
 
@@ -41,7 +42,7 @@ const ProjectTemplate: React.SFC<{
     <PageTitle chunks={[page.frontmatter.title, 'Projects']} />
     <ContentContainer color={colors.project}>
       <h2>{page.frontmatter.title} ({page.frontmatter.year})</h2>
-      <div dangerouslySetInnerHTML={{__html: page.html}} />
+      <Content html={page.html} />
       <Button href={page.frontmatter.link}>{page.frontmatter.title} <FontAwesomeIcon icon={faExternalLinkAlt} /></Button>
     </ContentContainer>
     <Container>

@@ -6,6 +6,7 @@ import {ArticleEntry} from '../components/article-list'
 
 import {MainLayout} from '../layouts/main'
 import {PageTitle} from '../utils'
+import {Content} from '../components/content'
 
 const PageTemplate: React.SFC<{
   data: {
@@ -26,7 +27,7 @@ const PageTemplate: React.SFC<{
     <PageTitle chunks={[page.frontmatter.title]} />
     <ContentContainer>
       <h2>{page.frontmatter.title}</h2>
-      <div dangerouslySetInnerHTML={{__html: page.html}} />
+      <Content html={page.html} />
     </ContentContainer>
     <Container>
       <h2>My Articles</h2>

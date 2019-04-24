@@ -8,6 +8,8 @@ import {ContentContainer, Container} from '../components/container'
 import {ShareButtons} from '../components/share'
 import {ArticleEntry, DateHeading, ArticleHeading} from '../components/article-list'
 import {OpenGraphTags} from '../components/open-graph'
+import {Content} from '../components/content'
+
 
 import {MainLayout} from '../layouts/main'
 
@@ -44,7 +46,7 @@ const BookTemplate: React.SFC<{
       <PageTitle chunks={[post.frontmatter.title, 'Books']} />
       <ArticleHeading>{post.frontmatter.title} <small>by {post.frontmatter.author}</small></ArticleHeading>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
-      <div dangerouslySetInnerHTML={{__html: post.html}} />
+      <Content html={post.html} />
       <p>
         <OutboundLink href={post.frontmatter.link}>Buy on Amazon</OutboundLink><br />
         <small>Following this link and making a purchase supports this site.</small>
