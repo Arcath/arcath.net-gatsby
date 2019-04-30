@@ -10,6 +10,7 @@ import {Footer} from '../components/footer'
 import badge from '../../static/512.png'
 
 import '../styles/normalize'
+import 'prism-themes/themes/prism-vs.css'
 
 const Main = styled('div')`
 
@@ -83,6 +84,7 @@ export const MainLayout: React.SFC<{container?: boolean}> = ({children, containe
         </h1>
         <ul>
           <li><Link to="/about">About</Link></li>
+          <li><Link to="/uses">Uses</Link></li>
           <li><Link to="/articles">Posts</Link></li>
           <li><Link to="/projects">Projects</Link></li>
           <li><Link to="/contact">Contact</Link></li>
