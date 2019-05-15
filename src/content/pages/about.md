@@ -19,17 +19,19 @@ I'm a component NodeJS and PHP developer.
  - Windows Server 2003 - 2016.
  - Windows XP - 10.
  - Full Domain construction and management, Group Policy, AD and supporting services.
- - Client imaging through WDS
+ - Client imaging through WDS.
+ - HyperV.
 
 ### Apple
+
  - iOS
- - MDM
+ - MDM (Mosyle, Meraki & Lightspeed MDM)
  - OSX
  - AppleTV and other software based solutions.
 
 ### Development
 
- - Typescript
- - PHP
- - NodeJS
- - WordPress
+ - [Typescript](/articles/typescript)
+ - [PHP](/articles/php)
+ - [NodeJS](/articles/node)
+ - [WordPress](/articles/wordpress)

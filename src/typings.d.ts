@@ -39,7 +39,7 @@ declare module 'gatsby-plugin-google-gtag'{
   }>
 }
 
-declare module 'htmr'{
+/*declare module 'htmr'{
   type HTMRFunction = (node: any, props: {}, children: React.ReactElement) => React.ReactElement
 
   export interface HTMROptions{
@@ -49,7 +49,7 @@ declare module 'htmr'{
   const convert: (html: string, options: HTMROptions) => React.ReactElement
 
   export default convert
-}
+}*/
 
 interface PostDetails{
   frontmatter: {
