@@ -1,6 +1,7 @@
 const path = require('path')
 const JIMP = require('jimp')
 const format = require('date-fns/format')
+const parseISO = require('date-fns/parseISO')
 
 module.exports = async function(type, node, id){
   await createImage(node, 600, 314, `twitter-${id}.png`)
@@ -39,7 +40,7 @@ async function createImage(node, x, y, output){
 
   const smallFont = await JIMP.loadFont(JIMP.FONT_SANS_14_BLACK)
 
-  await image.print(smallFont, 10, y - 24, format(node.frontmatter.date, 'Do MMMM YYYY'))
+  await image.print(smallFont, 10, y - 24, format(parseISO(node.frontmatter.date), 'Do MMMM yyyy'))
 
-  await image.write(path.join(__dirname, '..', 'static', 'social', output))
+  return await image.write(path.join(__dirname, '..', 'static', 'social', output))
 }

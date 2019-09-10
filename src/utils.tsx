@@ -3,12 +3,20 @@ import styled from '@emotion/styled'
 import {clearFix} from 'polished'
 
 
-import {format} from 'date-fns'
+import {format, parseISO} from 'date-fns'
 
 import {Helmet} from 'react-helmet'
 
-export const formatAsDate = (date: Date | string) => {
-  return format(date, 'Do MMMM YYYY')
+export const formatAsDate = (inDate: Date | string) => {
+  let date: Date
+
+  if(typeof inDate === 'string'){
+    date = parseISO(inDate)
+  }else{
+    date = inDate
+  }
+
+  return format(date, 'do MMMM yyyy')
 }
 
 export const pageTitle = (chunks: string[]) => {

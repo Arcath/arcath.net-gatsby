@@ -1,5 +1,4 @@
 import * as React from 'react'
-import {format} from 'date-fns'
 import Masonry from 'react-masonry-component'
 import styled from '@emotion/styled'
 import {Link} from 'gatsby'
@@ -7,6 +6,7 @@ import {clearFix} from 'polished'
 
 import {colors, breakpoints, Colors, Dimensions} from '../styles/variables'
 import {getEmSize} from '../styles/mixins'
+import {formatAsDate} from '../utils'
 
 export const Tag = styled(Link)`
   float:left;
@@ -82,7 +82,7 @@ export const ArticleEntry = ({article}: {article: PostDetails}) => {
 
   return <Article>
     <h3><Link to={article.fields.slug}>{article.frontmatter.title}</Link></h3>
-    <h4>{format(article.fields.date, 'Do MMMM YYYY')}</h4>
+    <h4>{formatAsDate(article.fields.date)}</h4>
     <p>{article.frontmatter.lead}</p>
     <TagList tags={article.frontmatter.tags} />
   </Article>
