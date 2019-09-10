@@ -5,3 +5,4 @@ public/
 src/content/sgp
 src/content/*/*-draft/
 static/social/*.png
+src/content/posts/*/social-*.png

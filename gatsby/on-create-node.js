@@ -3,8 +3,6 @@ const NOTE_PATH_SLUG_PATTERN = /^notes\/([\d]{4})-([\d]{2})-([\d]{2})-(.*?)\/.*?
 const PROJECTS_PATH_SLUG_PATTERN = /^projects\/(.*?)\/.*?$/
 const BOOKS_PATH_SLUG_PATTERN = /^books\/(.*?)\/.*?$/
 
-const createPageImage = require('./create-page-image')
-
 module.exports = ({node, actions, getNode}) => {
   const {createNodeField} = actions
 
@@ -24,8 +22,6 @@ module.exports = ({node, actions, getNode}) => {
           if(!layout){
             layout = 'post'
           }
-
-          createPageImage('post', node, node.id)
         }
 
         if(relativePath.includes('notes')){
@@ -36,8 +32,6 @@ module.exports = ({node, actions, getNode}) => {
           }
 
           slug =  '/notes/' + [matches[1], matches[2], matches[4]].join('/')
-
-          createPageImage('note', node, node.id)
         }
 
         if(relativePath.includes('projects')){

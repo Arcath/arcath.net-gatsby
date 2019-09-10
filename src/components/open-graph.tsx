@@ -5,7 +5,7 @@ import {StaticQuery, graphql} from 'gatsby'
 interface OpenGraphProps{
   title: string
   lead: string
-  id: string
+  slug?: string
 }
 
 interface StaticQueryData{
@@ -22,7 +22,7 @@ interface StaticQueryData{
   }
 }
 
-export const OpenGraphTags: React.SFC<OpenGraphProps> = ({title, lead, id}) => (
+export const OpenGraphTags: React.SFC<OpenGraphProps> = ({title, lead, slug}) => (
   <StaticQuery
     query={graphql`
       query OpenGraphQuery{
@@ -40,15 +40,19 @@ export const OpenGraphTags: React.SFC<OpenGraphProps> = ({title, lead, id}) => (
       }
     `}
     render={(data: StaticQueryData) => (
-      <Helmet meta={[
-        {property: 'og:title', content: title},
-        {property: 'og:description', content: lead},
-        {property: 'og:site_name', content: data.site.siteMetadata.title},
-        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/social/twitter-${id}.png`},
-        {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/social/facebook-${id}.png`},
-        {property: 'twitter:card', content: 'summary_large_image'},
-        {property: 'twitter:site', content: data.site.siteMetadata.author.social.twitterHandle}
-      ]} />
+      <>
+        <Helmet meta={[
+          {property: 'og:title', content: title},
+          {property: 'og:description', content: lead},
+          {property: 'og:site_name', content: data.site.siteMetadata.title},
+          {property: 'twitter:card', content: 'summary_large_image'},
+          {property: 'twitter:site', content: data.site.siteMetadata.author.social.twitterHandle}
+        ]} />
+        {!slug ? <></> : <Helmet meta={[
+          {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}${slug}/social-540-282.png`},
+          {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}${slug}/social-600-314.png`}
+        ]} />}
+      </>
     )}
   />
 )

@@ -18,6 +18,9 @@ const PostTemplate: React.SFC<{
     markdownRemark: {
       id: string
       html: string
+      fields: {
+        slug: string
+      }
       frontmatter: {
         title: string
         date: string
@@ -62,7 +65,7 @@ const PostTemplate: React.SFC<{
 
   return <MainLayout>
     <PageTitle chunks={[post.frontmatter.title]} />
-    <OpenGraphTags title={post.frontmatter.title} lead={post.frontmatter.lead} id={post.id} />
+    <OpenGraphTags title={post.frontmatter.title} lead={post.frontmatter.lead} slug={post.fields.slug} />
     <ContentContainer role="main">
       <h2>{post.frontmatter.title}</h2>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
@@ -109,6 +112,9 @@ export const query = graphql`
     markdownRemark(fields: { slug: {eq: $slug}}){
       id
       html
+      fields{
+        slug
+      }
       frontmatter{
         title
         date
