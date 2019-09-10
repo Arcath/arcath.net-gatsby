@@ -4,6 +4,8 @@ lead: Change the &quot;dead&quot; links in rendered markdown into proper links i
 date: 2019-05-15T10:12:51.203Z
 tags:
   - Gatsby
+syndication:
+  dev: https://dev.to/arcath/using-htmr-to-bring-life-to-links-in-gatsby-1968
 ---
 One of the amazing things about Gatsby is that your site is a full blown React app. Because of this it's always bugged me that whilst the navigation within _app_ is extremely fast anything I link to from my markdown triggers a full request for the page.
 
