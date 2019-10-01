@@ -52,8 +52,6 @@ module.exports = ({node, actions, getNode}) => {
           if(!layout){
             layout = 'book'
           }
-
-          createPageImage('book', node, node.id)
         }
       }
 
