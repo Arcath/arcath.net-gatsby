@@ -10,6 +10,7 @@ import {Container} from '../components/container'
 import {Footer} from '../components/footer'
 
 import badge from '../../static/512.png'
+import '../styles/normalize'
 
 const Index = styled('div')`
 
