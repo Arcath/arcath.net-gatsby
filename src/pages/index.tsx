@@ -1,12 +1,15 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import {graphql, Link} from 'gatsby'
+import {Helmet} from 'react-helmet'
+
 import {PageTitle, formatAsDate} from '../utils'
 
 import {Colors, Dimensions} from '../styles/variables'
 import {Container} from '../components/container'
 import {Footer} from '../components/footer'
-import {SiteHelmet} from '../layouts/main'
+
+import badge from '../../static/512.png'
 
 const Index = styled('div')`
 
@@ -89,7 +92,19 @@ const IndexContentBoxes = styled('div')`
 
 const IndexPage: React.SFC<{data: IndexPageData}> = ({data}) => (
   <Index>
-    <SiteHelmet />
+    <Helmet
+      meta={[
+        {name: 'theme-color', content: Colors.brand.dark},
+        {name: 'google-site-verification', content: 'qi2oRAc2fmvBL1qOVY4CgICdWCmZZJhKtkzgd1knYG4'},
+        {name: 'description', content: data.site.siteMetadata.description}
+      ]}
+      link={[
+        {rel: 'icon', type: 'image/png', href: badge}
+      ]}
+      htmlAttributes={{
+        lang: 'en'
+      }}
+    />
     <PageTitle chunks={[data.site.siteMetadata.description]} />
     <Box />
     <Container>

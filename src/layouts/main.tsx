@@ -47,46 +47,34 @@ const Header = styled('header')`
   }
 `
 
-export const SiteHelmet = () => {
-  const data = useStaticQuery(graphql`
-    query MainLayoutHelmet{
-      site{
-        siteMetadata{
-          title
-          description
-        }
+const MAIN_LAYOUT_QUERY = graphql`
+  query MainLayoutHeading{
+    site{
+      siteMetadata{
+        title
+        description
       }
     }
-  `)
-
-  return <Helmet
-    meta={[
-      {name: 'theme-color', content: Colors.brand.dark},
-      {name: 'google-site-verification', content: 'qi2oRAc2fmvBL1qOVY4CgICdWCmZZJhKtkzgd1knYG4'},
-      {name: 'description', content: data.site.siteMetadata.description}
-    ]}
-    link={[
-      {rel: 'icon', type: 'image/png', href: badge}
-    ]}
-    htmlAttributes={{
-      lang: 'en'
-    }}
-  />
-}
+  }
+`
 
 export const MainLayout: React.SFC<{container?: boolean}> = ({children, container}) => {
-  const data = useStaticQuery(graphql`
-    query MainLayoutHeading{
-      site{
-        siteMetadata{
-          title
-        }
-      }
-    }
-  `)
+  const data = useStaticQuery(MAIN_LAYOUT_QUERY)
 
   return <Main>
-    <SiteHelmet />
+    <Helmet
+      meta={[
+        {name: 'theme-color', content: Colors.brand.dark},
+        {name: 'google-site-verification', content: 'qi2oRAc2fmvBL1qOVY4CgICdWCmZZJhKtkzgd1knYG4'},
+        {name: 'description', content: data.site.siteMetadata.description}
+      ]}
+      link={[
+        {rel: 'icon', type: 'image/png', href: badge}
+      ]}
+      htmlAttributes={{
+        lang: 'en'
+      }}
+    />
     <Header role="banner">
       <Container>
         <h1>
