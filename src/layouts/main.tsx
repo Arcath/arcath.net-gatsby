@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import {Link, StaticQuery, graphql} from 'gatsby'
+import {Link, StaticQuery, graphql, useStaticQuery} from 'gatsby'
 import {Helmet} from 'react-helmet'
 
 import {Colors, Dimensions} from '../styles/variables'
@@ -48,7 +48,7 @@ const Header = styled('header')`
 `
 
 export const SiteHelmet = () => {
-  return <StaticQuery query={graphql`
+  const {data} = useStaticQuery(graphql`
     query MainLayoutHelmet{
       site{
         siteMetadata{
@@ -57,22 +57,20 @@ export const SiteHelmet = () => {
         }
       }
     }
-  `}
-  render={(data) => {
-    return <Helmet
-      meta={[
-        {name: 'theme-color', content: Colors.brand.dark},
-        {name: 'google-site-verification', content: 'qi2oRAc2fmvBL1qOVY4CgICdWCmZZJhKtkzgd1knYG4'},
-        {name: 'description', content: data.site.siteMetadata.description}
-      ]}
-      link={[
-        {rel: 'icon', type: 'image/png', href: badge}
-      ]}
-      htmlAttributes={{
-        lang: 'en'
-      }}
-    />
-  }}
+  `)
+
+  return <Helmet
+    meta={[
+      {name: 'theme-color', content: Colors.brand.dark},
+      {name: 'google-site-verification', content: 'qi2oRAc2fmvBL1qOVY4CgICdWCmZZJhKtkzgd1knYG4'},
+      {name: 'description', content: data.site.siteMetadata.description}
+    ]}
+    link={[
+      {rel: 'icon', type: 'image/png', href: badge}
+    ]}
+    htmlAttributes={{
+      lang: 'en'
+    }}
   />
 }
 
