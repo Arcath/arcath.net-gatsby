@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import {Link, StaticQuery, graphql, useStaticQuery} from 'gatsby'
+import {Link, graphql, useStaticQuery} from 'gatsby'
 import {Helmet} from 'react-helmet'
 
 import {Colors, Dimensions} from '../styles/variables'
@@ -48,7 +48,7 @@ const Header = styled('header')`
 `
 
 export const SiteHelmet = () => {
-  const {data} = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query MainLayoutHelmet{
       site{
         siteMetadata{
@@ -74,25 +74,23 @@ export const SiteHelmet = () => {
   />
 }
 
-export const MainLayout: React.SFC<{container?: boolean}> = ({children, container}) => (
-  <Main>
+export const MainLayout: React.SFC<{container?: boolean}> = ({children, container}) => {
+  const data = useStaticQuery(graphql`
+    query MainLayoutHeading{
+      site{
+        siteMetadata{
+          title
+        }
+      }
+    }
+  `)
+
+  return <Main>
     <SiteHelmet />
     <Header role="banner">
       <Container>
         <h1>
-          <Link to="/">
-            <StaticQuery query={graphql`
-              query MainLayoutHeading{
-                site{
-                  siteMetadata{
-                    title
-                  }
-                }
-              }
-            `}
-            render={(data) => data.site.siteMetadata.title}
-            />
-          </Link>
+          <Link to="/">{data.site.siteMetadata.title}</Link>
         </h1>
         <ul>
           <li><Link to="/about">About</Link></li>
@@ -112,4 +110,4 @@ export const MainLayout: React.SFC<{container?: boolean}> = ({children, containe
       <Footer />
     </Container>
   </Main>
-)
+}
