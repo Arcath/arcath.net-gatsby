@@ -110,7 +110,7 @@ export const Footer = () => {
           </p>
         </Legal>
         <ContactHeading>{data.site.siteMetadata.title}</ContactHeading>
-        <p>{data.site.siteMetadata.description} <Link to='/about'>More</Link></p>
+        <p><Link to='/about'>{data.site.siteMetadata.description}</Link></p>
         <SocialList>
           <li><OutboundLink href={data.site.siteMetadata.author.social.github}>Github</OutboundLink></li>
           <li><OutboundLink href={data.site.siteMetadata.author.social.twitter}>Twitter</OutboundLink></li>

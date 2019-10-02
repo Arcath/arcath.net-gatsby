@@ -96,7 +96,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://arcath.net'
+        siteUrl: 'https://www.arcath.net'
       }
     },
     {

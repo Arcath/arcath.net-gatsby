@@ -48,17 +48,31 @@ const Header = styled('header')`
 `
 
 export const SiteHelmet = () => {
-  return  <Helmet
-    meta={[
-      {name: 'theme-color', content: Colors.brand.dark},
-      {name: 'google-site-verification', content: 'qi2oRAc2fmvBL1qOVY4CgICdWCmZZJhKtkzgd1knYG4'}
-    ]}
-    link={[
-      {rel: 'icon', type: 'image/png', href: badge}
-    ]}
-    htmlAttributes={{
-      lang: 'en'
-    }}
+  return <StaticQuery query={graphql`
+    query MainLayoutHelmet{
+      site{
+        siteMetadata{
+          title
+          description
+        }
+      }
+    }
+  `}
+  render={(data) => {
+    return <Helmet
+      meta={[
+        {name: 'theme-color', content: Colors.brand.dark},
+        {name: 'google-site-verification', content: 'qi2oRAc2fmvBL1qOVY4CgICdWCmZZJhKtkzgd1knYG4'},
+        {name: 'description', content: data.site.siteMetadata.description}
+      ]}
+      link={[
+        {rel: 'icon', type: 'image/png', href: badge}
+      ]}
+      htmlAttributes={{
+        lang: 'en'
+      }}
+    />
+  }}
   />
 }
 

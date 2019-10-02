@@ -126,7 +126,7 @@ const IndexPage: React.SFC<{data: IndexPageData}> = ({data}) => (
               <p>{project.frontmatter.lead}</p>
             </IndexPost>
           })}
-          <Link to="/projects">More</Link>
+          <Link to="/projects">All Projects</Link>
         </IndexContent>
         <IndexContent color={Colors.primary.black}>
           <h2>Books</h2>
@@ -141,7 +141,7 @@ const IndexPage: React.SFC<{data: IndexPageData}> = ({data}) => (
               <p>{book.frontmatter.lead}</p>
             </IndexPost>
           })}
-          <Link to="/books">More</Link>
+          <Link to="/books">All Books</Link>
         </IndexContent>
       </IndexContentBoxes>
     </Container>
