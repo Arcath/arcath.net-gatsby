@@ -1,6 +1,6 @@
 # Arcath.net (Gatsby)
 
-[![CircleCI](https://circleci.com/gh/Arcath/arcath.net-gatsby.svg?style=svg)](https://circleci.com/gh/Arcath/arcath.net-gatsby)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/73b8e4b1-187c-4ca3-8c08-410d945d416b/deploy-status)](https://app.netlify.com/sites/arcath-net/deploys)
 
 My gatsby site.
 
