@@ -7,6 +7,9 @@ const format = require('date-fns/format')
 
 const postsPath = path.join(__dirname, '..', 'src', 'content', 'posts')
 const socialsPath = path.join(__dirname, 'social-images')
+const outputPath = path.join(__dirname, '..', 'static', 'social')
+
+const POST_PATH_SLUG_PATTERN = /^([\d]{4})-([\d]{2})-([\d]{2})-(.*?)$/
 
 const posts = readdirSync(postsPath)
 const socials = readdirSync(socialsPath)
@@ -25,6 +28,9 @@ const generateImage = (social, post) => {
   JIMP.read(path.join(socialsPath, social))
     .then((image) => {
       const file = readFileSync(path.join(postsPath, post, 'index.md')).toString()
+
+      const matches = POST_PATH_SLUG_PATTERN.exec(post)
+      const output = path.join(outputPath, matches[1], matches[2], matches[4])
 
       const {data} = frontmatter(file)
 
@@ -54,7 +60,7 @@ const generateImage = (social, post) => {
             .then((smallFont) => {
               image.print(smallFont, 20, image.bitmap.height - 34, format(data.date, 'do MMMM yyyy'))
 
-              image.write(path.join(postsPath, post, social))
+              image.write(path.join(output, social))
               progress.update(i)
               i++
 

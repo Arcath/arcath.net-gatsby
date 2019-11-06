@@ -49,8 +49,8 @@ export const OpenGraphTags: React.SFC<OpenGraphProps> = ({title, lead, slug}) =>
           {property: 'twitter:site', content: data.site.siteMetadata.author.social.twitterHandle}
         ]} />
         {!slug ? <></> : <Helmet meta={[
-          {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}${slug}/social-540-282.png`},
-          {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}${slug}/social-600-314.png`}
+          {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/social${slug}/social-540-282.png`},
+          {property: 'og:image', content: `${data.site.siteMetadata.siteUrl}/social${slug}/social-600-314.png`}
         ]} />}
       </>
     )}
