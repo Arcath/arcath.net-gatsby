@@ -1,4 +1,4 @@
-import {injectGlobal} from 'emotion'
+import {css} from '@emotion/core'
 import {dimensions, fonts, Colors, breakpoints} from './variables'
 import {getEmSize} from './mixins'
 
@@ -6,8 +6,7 @@ require('typeface-montserrat')
 require('typeface-open-sans')
 require('typeface-martel')
 
-// tslint:disable-next-line:no-unused-expression
-injectGlobal`
+export const globalCSS = css`
   html {
     box-sizing: border-box;
   }

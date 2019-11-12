@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import {Link, graphql, useStaticQuery} from 'gatsby'
 import {Helmet} from 'react-helmet'
+import {Global} from '@emotion/core'
 
 import {Colors, Dimensions} from '../styles/variables'
 import {Container} from '../components/container'
@@ -9,7 +10,7 @@ import {Footer} from '../components/footer'
 
 import badge from '../../static/512.png'
 
-import '../styles/normalize'
+import {globalCSS} from '../styles/normalize'
 import 'prism-themes/themes/prism-vs.css'
 
 const Main = styled('div')`
@@ -62,6 +63,7 @@ export const MainLayout: React.SFC<{container?: boolean}> = ({children, containe
   const data = useStaticQuery(MAIN_LAYOUT_QUERY)
 
   return <Main>
+    <Global styles={globalCSS} />
     <Helmet
       meta={[
         {name: 'theme-color', content: Colors.brand.dark},

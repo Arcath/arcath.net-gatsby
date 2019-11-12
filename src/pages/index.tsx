@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import {graphql, Link} from 'gatsby'
 import {Helmet} from 'react-helmet'
+import {Global} from '@emotion/core'
 
 import {PageTitle, formatAsDate} from '../utils'
 
@@ -10,7 +11,7 @@ import {Container} from '../components/container'
 import {Footer} from '../components/footer'
 
 import badge from '../../static/512.png'
-import '../styles/normalize'
+import {globalCSS} from '../styles/normalize'
 
 const Index = styled('div')`
 
@@ -93,6 +94,7 @@ const IndexContentBoxes = styled('div')`
 
 const IndexPage: React.SFC<{data: IndexPageData}> = ({data}) => (
   <Index>
+    <Global styles={globalCSS} />
     <Helmet
       meta={[
         {name: 'theme-color', content: Colors.brand.dark},
