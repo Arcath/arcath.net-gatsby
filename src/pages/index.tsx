@@ -115,7 +115,7 @@ const IndexPage: React.SFC<{data: IndexPageData}> = ({data}) => (
         <h1>{data.site.siteMetadata.title}</h1>
         <h5>{data.site.siteMetadata.description}</h5>
       </Hero>
-      <IndexContent color={Colors.primary.black}>
+      <IndexContent color={Colors.primary.white}>
         <h2>Blog</h2>
         {data.articles.edges.map((edge) => {
           let post = edge.node
@@ -130,8 +130,8 @@ const IndexPage: React.SFC<{data: IndexPageData}> = ({data}) => (
         })}
         <Link to="/articles">View all Articles</Link>
       </IndexContent>
-      <IndexContentBoxes color={Colors.primary.black}>
-        <IndexContent color={Colors.primary.black}>
+      <IndexContentBoxes color={Colors.primary.white}>
+        <IndexContent color={Colors.primary.white}>
           <h2>Projects</h2>
           {data.projects.edges.map((edge) => {
             let project = edge.node
@@ -146,7 +146,7 @@ const IndexPage: React.SFC<{data: IndexPageData}> = ({data}) => (
           })}
           <Link to="/projects">All Projects</Link>
         </IndexContent>
-        <IndexContent color={Colors.primary.black}>
+        <IndexContent color={Colors.primary.white}>
           <h2>Books</h2>
           {data.books.edges.map((edge) => {
             let book = edge.node

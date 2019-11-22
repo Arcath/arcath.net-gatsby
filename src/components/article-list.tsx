@@ -18,7 +18,7 @@ export const Tag = styled(Link)`
 
 export const Article = styled('div')`
   float:left;
-  background-color:${Colors.primary.black};
+  background-color:${Colors.primary.white};
   border-radius:${Dimensions.sizes.padding / 2}px;
   width:48%;
   margin:1%;

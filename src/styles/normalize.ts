@@ -28,7 +28,7 @@ export const globalCSS = css`
     overflow-y: scroll;
     font-family: ${fonts.body};
     font-weight:200;
-    color: ${Colors.primary.white};
+    color: ${Colors.primary.text};
     background-color: ${Colors.primary.background};
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
