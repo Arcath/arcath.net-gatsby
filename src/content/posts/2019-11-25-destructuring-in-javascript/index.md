@@ -6,7 +6,7 @@ tags:
   - TypeScript
   - JavaScript
 ---
-Destructuing allows you to assign values to variables in a quick shorthand instead of having multiple lines. I use it pretty much every day but I can't remember a time when I actually learn't anything about it, it just kind of appeared in my code and I've used it ever since.
+Destructuring allows you to assign values to variables in a quick shorthand instead of having multiple lines. I use it pretty much every day but I can't remember a time when I actually learnt anything about it, it just kind of appeared in my code and I've used it ever since.
 
 A prime example of its use in the wild is React, take this function component.
 
