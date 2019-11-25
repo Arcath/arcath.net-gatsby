@@ -82,7 +82,7 @@ const ProjectsPage = () => {
             projectsPerCategory[project.node.frontmatter.category].push(project)
           })
 
-
+          categories = categories.sort()
 
           return categories.map((category) => {
             return <div>
