@@ -6,6 +6,7 @@ tags:
  - Windows
 syndication:
   medium: https://medium.com/@arcathwhitefall/robocopy-the-best-copying-tool-you-already-have-58e615bcdfdf
+  dev: https://dev.to/arcath/robocopy-the-best-copying-tool-you-already-have-la8
 ---
 Robocopy is an amazing tool that is built into Windows. If your running Windows 10 you already have it! Just fire up a command prompt and your away.
 
