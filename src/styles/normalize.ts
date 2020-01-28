@@ -38,13 +38,13 @@ export const globalCSS = css`
   }
 
   a {
-    color: ${Colors.brand.light};
+    color: ${Colors.brand.dark};
     text-decoration: none;
     transition: color 0.2s;
 
     &:hover,
     &:focus {
-      color: ${Colors.brand.dark};
+      color: ${Colors.brand.light};
     }
   }
 
