@@ -10,7 +10,7 @@ I've spent the last 10 years working as an IT Engineer in Schools. I've worked w
 
 As an Engineer at Ed-IT Solutions I've built Windows domains from scratch and designed school internet connections. I run a cluster of VPS Web servers and provide web hosting to schools.
 
-I'm a component NodeJS and PHP developer.
+I'm a component NodeJS and PHP developer that has worked on websites and web applications ranging from small shop Gatsby sites to school WordPress sites and data management apps.
 
 ## Skills
 
@@ -24,9 +24,10 @@ I'm a component NodeJS and PHP developer.
 
 ### Apple
 
- - iOS
- - MDM (Mosyle, Meraki & Lightspeed MDM)
- - OSX
+ - iOS.
+ - MDM (Mosyle, Meraki & Lightspeed MDM).
+ - Apple School Manager
+ - OSX.
  - AppleTV and other software based solutions.
 
 ### Development
@@ -35,3 +36,10 @@ I'm a component NodeJS and PHP developer.
  - [PHP](/articles/php)
  - [NodeJS](/articles/node)
  - [WordPress](/articles/wordpress)
+
+### Networking
+
+ - Wireless Systems
+ - Switches
+ - Routing
+ - VLANs
