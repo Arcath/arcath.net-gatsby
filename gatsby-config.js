@@ -105,8 +105,8 @@ module.exports = {
         name: 'Adam Laycock',
         short_name: 'arcath.net',
         start_url: '/',
-        background_color: '#a55eea',
-        theme_color: '#a55eea',
+        background_color: '#686de0',
+        theme_color: '#686de0',
         display: 'minimal-ui',
         icons: [
           {
@@ -122,6 +122,7 @@ module.exports = {
         ]
       }
     },
+    'gatsby-plugin-offline',
     'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
