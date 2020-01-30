@@ -245,7 +245,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            feedTitle: 'All posts by Adam Laycock'
+            title: 'All posts by Adam Laycock'
           }
         ]
       }
