@@ -86,7 +86,11 @@ module.exports = {
               maxWidth: 1920,
               quality: 90,
               linkImagesToOriginal: false,
-              withWebp: true
+              withWebp: true,
+              tracedSVG: {
+                threshold: 10,
+                color: '#4834d4'
+              }
             }
           }
         ]
