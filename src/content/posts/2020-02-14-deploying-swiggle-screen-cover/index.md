@@ -22,7 +22,7 @@ Open up your GPO and go to _Computer or User Configuration\Policies\Administrati
 
 |Setting|Value|About|
 |:------|:----|:----|
-|Configure the list of force-installed apps and extensions|`hbnncioglhbalkgbpbfhnmpihojjjcbi;https://clients2.google.com/service/update2/crx`|This is the extenions ID and the update URL seperated by a `;`.|
+|Configure the list of force-installed apps and extensions|`hbnncioglhbalkgbpbfhnmpihojjjcbi;https://clients2.google.com/service/update2/crx`|This is the extensions ID and the update URL seperated by a `;`.|
 
 Thats it! Swiggle Screen Cover will now be deployed and kept up to date automatically by Chrome.
 
