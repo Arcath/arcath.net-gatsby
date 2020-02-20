@@ -9,12 +9,10 @@ I've long held the belief that end users are much more likely to like a new syst
 
 I was rather happy with a photo I took at one of our schools.
 
-[[fullWidthImage]]
-| ![Before Editing](./photo.jpg)
+![Before Editing](./photo.jpg)
 
 The original image isn't suitable as a wallpaper. It's main issue is the volume of colour and how it would contrast with the desktop icons over the top of it.
 
 Simply making the image black and white would have worked but it wouldn't have had the _pop_ I normally aim for.
 
-[[fullWidthImage]]
-| ![Before Editing](./wallpaper.jpg)
+![Before Editing](./wallpaper.jpg)

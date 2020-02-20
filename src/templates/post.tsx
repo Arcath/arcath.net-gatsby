@@ -5,7 +5,7 @@ import {Waypoint} from 'react-waypoint'
 
 import {formatAsDate, PageTitle} from '../utils'
 
-import {ContentContainer, Container} from '../components/container'
+import {ArticleGrid, WideGrid, BoxGrid} from '../components/grid'
 import {ArticleEntry, TagList, DateHeading} from '../components/article-list'
 import {ShareButtons} from '../components/share'
 import {OpenGraphTags} from '../components/open-graph'
@@ -66,7 +66,7 @@ const PostTemplate: React.SFC<{
   return <MainLayout>
     <PageTitle chunks={[post.frontmatter.title]} />
     <OpenGraphTags title={post.frontmatter.title} lead={post.frontmatter.lead} slug={post.fields.slug} />
-    <ContentContainer role="main">
+    <ArticleGrid role="main">
       <h2>{post.frontmatter.title}</h2>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
       <TagList tags={post.frontmatter.tags} />
@@ -74,12 +74,14 @@ const PostTemplate: React.SFC<{
       <Waypoint onEnter={handleWaypoint} />
       <ShareButtons url={location.href} title={post.frontmatter.title} />
       {syndication(post.frontmatter.syndication)}
-    </ContentContainer>
-    <Container>
+    </ArticleGrid>
+    <WideGrid>
       <h2>Other Posts</h2>
-      <ArticleEntry article={data.previousPost} />
-      <ArticleEntry article={data.nextPost} />
-    </Container>
+      <BoxGrid targetWidth={100}>
+        <ArticleEntry article={data.previousPost} />
+        <ArticleEntry article={data.nextPost} />
+      </BoxGrid>
+    </WideGrid>
   </MainLayout>
 }
 
@@ -93,11 +95,13 @@ const syndication = (syndication: {
     return ''
   }
 
-  return <div style={{clear: 'both'}}>
+  return <>
     <h3>Syndication</h3>
-    {syndication.medium ? <OutboundLink href={syndication.medium}>Medium</OutboundLink> : '' }
-    {syndication.dev ? <OutboundLink href={syndication.dev}>Dev.to</OutboundLink> : ''}
-  </div>
+    <p>
+      {syndication.medium ? <OutboundLink href={syndication.medium}>Medium</OutboundLink> : '' }
+      {syndication.dev ? <OutboundLink href={syndication.dev}>Dev.to</OutboundLink> : ''}
+    </p>
+  </>
 }
 
 export const query = graphql`

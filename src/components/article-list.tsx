@@ -1,11 +1,11 @@
 import * as React from 'react'
-import Masonry from 'react-masonry-component'
 import styled from '@emotion/styled'
 import {Link} from 'gatsby'
 import {clearFix} from 'polished'
 
-import {colors, breakpoints, Colors, Dimensions} from '../styles/variables'
-import {getEmSize} from '../styles/mixins'
+import {ArticleListGrid} from './grid'
+
+import {colors, Colors, Dimensions} from '../styles/variables'
 import {formatAsDate} from '../utils'
 
 export const Tag = styled(Link)`
@@ -17,11 +17,8 @@ export const Tag = styled(Link)`
 `
 
 export const Article = styled('div')`
-  float:left;
   background-color:${Colors.primary.white};
   border-radius:${Dimensions.sizes.padding / 2}px;
-  width:48%;
-  margin:1%;
   box-shadow:0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   padding:10px;
   box-sizing:border-box;
@@ -33,11 +30,6 @@ export const Article = styled('div')`
   h4{
     color:${colors.gray};
     font-weight:200;
-  }
-
-  @media(max-width: ${getEmSize(breakpoints.sm)}){
-    width: calc(100vw - 0.4em - 10px) !important;
-    margin:0.2em;
   }
 `
 
@@ -66,13 +58,13 @@ export const ArticleList = ({articles}: {articles: {
     node: PostDetails
   }[]
 }}) => {
-  return <Masonry>
+  return <ArticleListGrid>
   {articles.edges.map((edge, i) => {
     let article = edge.node
 
     return <ArticleEntry article={article} key={i} />
   })}
-</Masonry>
+</ArticleListGrid>
 }
 
 export const ArticleEntry = ({article}: {article: PostDetails}) => {

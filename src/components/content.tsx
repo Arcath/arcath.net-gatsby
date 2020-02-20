@@ -14,8 +14,17 @@ export const Content: React.FunctionComponent<{html: string}> = ({html}) => {
       }
 
       return <Link to={href!}>{node.children}</Link>
+    },
+    p: (node: Partial<ReactHTMLElement<HTMLParagraphElement>["props"]>) => {
+      let className = ''
+
+      if((node.children! as any).length === 1 && typeof (node.children! as any)[0] === 'object'){
+        className = "full-width"
+      }
+
+      return <p {...node} className={className} />
     }
   }
 
-  return <div>{convert(html, { transform })}</div>
+  return <>{convert(html, { transform })}</>
 }

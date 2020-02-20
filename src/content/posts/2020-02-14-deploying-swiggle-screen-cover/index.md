@@ -18,7 +18,7 @@ If you haven't already head got the ADMX Templates for Chrome installed head ove
 
 Getting the extension out to the clients is actually pretty easy with the ADMX templates. You only need 2 peices of information about the extension, its ID and where to update it from. For Swiggle thats easy as its listed on the [Chrome Web Store](https://chrome.google.com/webstore/detail/swiggleorguk/hbnncioglhbalkgbpbfhnmpihojjjcbi). The ID is `hbnncioglhbalkgbpbfhnmpihojjjcbi` as found at the end of the URL and the update URL for all Chrome Web Store extensions is `https://clients2.google.com/service/update2/crx`.
 
-Open up your GPO and go to `Computer or User Configuration\Policies\Administrative Templates\Google\Google Chrome\Extensions`.
+Open up your GPO and go to _Computer or User Configuration\Policies\Administrative Templates\Google\Google Chrome\Extensions_.
 
 |Setting|Value|About|
 |:------|:----|:----|

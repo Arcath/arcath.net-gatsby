@@ -4,7 +4,7 @@ import {OutboundLink} from 'gatsby-plugin-google-gtag'
 
 import {formatAsDate, PageTitle} from '../utils'
 
-import {ContentContainer, Container} from '../components/container'
+import {ArticleGrid, WideGrid, BoxGrid} from '../components/grid'
 import {ShareButtons} from '../components/share'
 import {ArticleEntry, DateHeading, ArticleHeading} from '../components/article-list'
 import {OpenGraphTags} from '../components/open-graph'
@@ -42,7 +42,7 @@ const BookTemplate: React.SFC<{
 
   return <MainLayout>
     <OpenGraphTags title={post.frontmatter.title} lead="" id={post.id} />
-    <ContentContainer>
+    <ArticleGrid>
       <PageTitle chunks={[post.frontmatter.title, 'Books']} />
       <ArticleHeading>{post.frontmatter.title} <small>by {post.frontmatter.author}</small></ArticleHeading>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
@@ -52,12 +52,14 @@ const BookTemplate: React.SFC<{
         <small>Following this link and making a purchase supports this site.</small>
       </p>
       <ShareButtons url={location.href} title={post.frontmatter.title} />
-    </ContentContainer>
-    <Container>
+    </ArticleGrid>
+    <WideGrid>
       <h2>Other Posts</h2>
-      <ArticleEntry article={data.previousPost} />
-      <ArticleEntry article={data.nextPost} />
-    </Container>
+      <BoxGrid targetWidth={100}>
+        <ArticleEntry article={data.previousPost} />
+        <ArticleEntry article={data.nextPost} />
+      </BoxGrid>
+    </WideGrid>
   </MainLayout>
 }
 

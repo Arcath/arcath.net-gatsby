@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {graphql} from 'gatsby'
 
-import {Container, ContentContainer} from '../components/container'
+import {ArticleGrid, WideGrid, BoxGrid} from '../components/grid'
 import {ArticleEntry} from '../components/article-list'
 
 import {MainLayout} from '../layouts/main'
@@ -25,15 +25,17 @@ const PageTemplate: React.SFC<{
 
   return <MainLayout>
     <PageTitle chunks={[page.frontmatter.title]} />
-    <ContentContainer>
+    <ArticleGrid>
       <h2>{page.frontmatter.title}</h2>
       <Content html={page.html} />
-    </ContentContainer>
-    <Container>
+    </ArticleGrid>
+    <WideGrid>
       <h2>My Articles</h2>
-      <ArticleEntry article={data.previousPost} />
-      <ArticleEntry article={data.nextPost} />
-    </Container>
+      <BoxGrid targetWidth={100}>
+        <ArticleEntry article={data.previousPost} />
+        <ArticleEntry article={data.nextPost} />
+      </BoxGrid>
+    </WideGrid>
   </MainLayout>
 }
 

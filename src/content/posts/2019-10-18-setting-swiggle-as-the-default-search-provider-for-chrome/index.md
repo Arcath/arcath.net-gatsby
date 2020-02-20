@@ -18,7 +18,7 @@ Once those are installed we need to make a choice about who we apply it to. I te
 
 # GPO Configuration
 
-The policy settings for the default search provider are located in `Computer or User Configuration\Policies\Administrative Templates\Google\Google Chrome\Default search provider` making sure to apply them to users or computers depending on the members of the OU.
+The policy settings for the default search provider are located in _Computer or User Configuration\Policies\Administrative Templates\Google\Google Chrome\Default search provider_ making sure to apply them to users or computers depending on the members of the OU.
 
 |Setting|Value|About|
 |:------|:----|:----|

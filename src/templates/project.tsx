@@ -5,7 +5,7 @@ import {OutboundLink} from 'gatsby-plugin-google-gtag'
 import {faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-import {Container, ContentContainer} from '../components/container'
+import {ArticleGrid, WideGrid, BoxGrid} from '../components/grid'
 import {ArticleEntry} from '../components/article-list'
 import {colors} from '../styles/variables'
 import {PageTitle} from '../utils'
@@ -40,16 +40,18 @@ const ProjectTemplate: React.SFC<{
 
   return <MainLayout>
     <PageTitle chunks={[page.frontmatter.title, 'Projects']} />
-    <ContentContainer color={colors.project}>
+    <ArticleGrid>
       <h2>{page.frontmatter.title} ({page.frontmatter.year})</h2>
       <Content html={page.html} />
       <Button href={page.frontmatter.link}>{page.frontmatter.title} <FontAwesomeIcon icon={faExternalLinkAlt} /></Button>
-    </ContentContainer>
-    <Container>
+    </ArticleGrid>
+    <WideGrid>
       <h2>My Articles</h2>
-      <ArticleEntry article={data.previousPost} />
-      <ArticleEntry article={data.nextPost} />
-    </Container>
+      <BoxGrid targetWidth={100}>
+        <ArticleEntry article={data.previousPost} />
+        <ArticleEntry article={data.nextPost} />
+      </BoxGrid>
+    </WideGrid>
   </MainLayout>
 }
 

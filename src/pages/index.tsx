@@ -7,7 +7,8 @@ import {Global} from '@emotion/core'
 import {PageTitle, formatAsDate} from '../utils'
 
 import {Colors, Dimensions} from '../styles/variables'
-import {Container} from '../components/container'
+
+import {WideGrid} from '../components/grid'
 import {Footer} from '../components/footer'
 
 import badge from '../../static/512.png'
@@ -18,25 +19,26 @@ const Index = styled('div')`
 `
 
 const Box = styled('div')`
-background:linear-gradient(${Dimensions.lightsource}, ${Colors.brand.light}, ${Colors.brand.dark});
-width:150vw;
-height:100vh;
-position:absolute;
-top:-50vh;
-left:-25vw;
-transform:rotate(${Dimensions.lightsource});
+  background:linear-gradient(${Dimensions.lightsource}, ${Colors.brand.light}, ${Colors.brand.dark});
+  width:150vw;
+  height:100vh;
+  position:absolute;
+  top:-50vh;
+  left:-25vw;
+  transform:rotate(${Dimensions.lightsource});
+  z-index:5;
 
-@media(max-width:900px){
-  left:-35vw;
-}
+  @media(max-width:900px){
+    left:-35vw;
+  }
 
-@media(max-width:550px){
-  left:-45vw;
-}
+  @media(max-width:550px){
+    left:-45vw;
+  }
 
-@media(max-width:400px){
-  left:-55vw;
-}
+  @media(max-width:400px){
+    left:-55vw;
+  }
 `
 
 const Hero = styled('div')`
@@ -45,6 +47,7 @@ const Hero = styled('div')`
   margin-top:25vh;
   color:${Colors.primary.white};
   text-align:center;
+  z-index:9;
 
   @media(max-width:900px){
     margin-top:20vh;
@@ -60,6 +63,7 @@ const IndexContent = styled<'div', {color: string}>('div')`
   padding:${Dimensions.sizes.padding * 2}px;
   box-sizing:border-box;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  z-index:9;
 
   h2{
     margin-top:0;
@@ -110,7 +114,7 @@ const IndexPage: React.SFC<{data: IndexPageData}> = ({data}) => (
     />
     <PageTitle chunks={[data.site.siteMetadata.description]} />
     <Box />
-    <Container>
+    <WideGrid>
       <Hero>
         <h1>{data.site.siteMetadata.title}</h1>
         <h5>{data.site.siteMetadata.description}</h5>
@@ -162,10 +166,8 @@ const IndexPage: React.SFC<{data: IndexPageData}> = ({data}) => (
           <Link to="/books">All Books</Link>
         </IndexContent>
       </IndexContentBoxes>
-    </Container>
-    <Container>
       <Footer />
-    </Container>
+    </WideGrid>
   </Index>
 )
 

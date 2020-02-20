@@ -36,6 +36,9 @@ export const Dimensions = {
   },
   fontWeights: {
     light: 300
+  },
+  widths: {
+    full: 80
   }
 }
 

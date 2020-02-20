@@ -18,7 +18,7 @@ export const globalCSS = css`
   }
 
   html {
-    font-size: ${dimensions.fontSize.regular}px !important;
+    font-size: 1rem !important;
     line-height: ${dimensions.lineHeight.regular} !important;
   }
 

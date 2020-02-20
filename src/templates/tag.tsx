@@ -1,12 +1,11 @@
 import * as React from 'react'
 import {graphql} from 'gatsby'
 
-import {ContentContainer} from '../components/container'
+import {WideGrid} from '../components/grid'
 import {ArticleList} from '../components/article-list'
 import {PageTitle} from '../utils'
 
 import {MainLayout} from '../layouts/main'
-import {colors} from '../styles/variables'
 
 const TagTemplate: React.SFC<{
   data: {
@@ -35,10 +34,10 @@ const TagTemplate: React.SFC<{
 
   return <MainLayout>
     <PageTitle chunks={[pageContext.tag, 'Tags']} />
-    <ContentContainer color={colors.brand}>
+    <WideGrid wideHeading>
       <h2>{pageContext.tag} ({data.articles.edges.length})</h2>
       <ArticleList articles={data.articles} />
-    </ContentContainer>
+    </WideGrid>
   </MainLayout>
 }
 

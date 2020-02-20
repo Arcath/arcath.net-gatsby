@@ -3,7 +3,7 @@ import {graphql} from 'gatsby'
 
 import {formatAsDate, PageTitle} from '../utils'
 
-import {ContentContainer, Container} from '../components/container'
+import {ArticleGrid, WideGrid, BoxGrid} from '../components/grid'
 import {ArticleEntry, TagList, DateHeading} from '../components/article-list'
 import {ShareButtons} from '../components/share'
 import {OpenGraphTags} from '../components/open-graph'
@@ -33,19 +33,21 @@ const NoteTemplate: React.SFC<{
 
   return <MainLayout>
     <PageTitle chunks={[post.frontmatter.title]} />
-    <OpenGraphTags title={post.frontmatter.title} lead={post.frontmatter.lead} id={post.id} />
-    <ContentContainer>
+    <OpenGraphTags title={post.frontmatter.title} lead={post.frontmatter.lead} />
+    <ArticleGrid>
       <h2>{post.frontmatter.title}</h2>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
       <TagList tags={post.frontmatter.tags} />
       <Content html={post.html} />
       <ShareButtons url={location.href} title={post.frontmatter.title} />
-    </ContentContainer>
-    <Container>
+    </ArticleGrid>
+    <WideGrid>
       <h2>Other Posts</h2>
-      <ArticleEntry article={data.previousPost} />
-      <ArticleEntry article={data.nextPost} />
-    </Container>
+      <BoxGrid targetWidth={100}>
+        <ArticleEntry article={data.previousPost} />
+        <ArticleEntry article={data.nextPost} />
+      </BoxGrid>
+    </WideGrid>
   </MainLayout>
 }
 

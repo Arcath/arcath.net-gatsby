@@ -4,6 +4,8 @@ import {Link, graphql, useStaticQuery} from 'gatsby'
 import {Helmet} from 'react-helmet'
 import {Global} from '@emotion/core'
 
+import {WideGrid} from '../components/grid'
+
 import {Colors, Dimensions} from '../styles/variables'
 import {Container} from '../components/container'
 import {Footer} from '../components/footer'
@@ -78,26 +80,28 @@ export const MainLayout: React.SFC<{container?: boolean}> = ({children, containe
       }}
     />
     <Header role="banner">
-      <Container>
-        <h1>
-          <Link to="/">{data.site.siteMetadata.title}</Link>
-        </h1>
-        <ul>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/uses">Uses</Link></li>
-          <li><Link to="/articles">Posts</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-        </ul>
-      </Container>
+      <WideGrid>
+        <div>
+          <h1>
+            <Link to="/">{data.site.siteMetadata.title}</Link>
+          </h1>
+          <ul>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/uses">Uses</Link></li>
+            <li><Link to="/articles">Posts</Link></li>
+            <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
+        </div>
+      </WideGrid>
     </Header>
     {
       container
       ? <Container role="main">{children}</Container>
       : children
     }
-    <Container>
+    <WideGrid>
       <Footer />
-    </Container>
+    </WideGrid>
   </Main>
 }

@@ -3,14 +3,14 @@ import {StaticQuery, graphql} from 'gatsby'
 
 import {MainLayout} from '../layouts/main'
 
-import {Container} from '../components/container'
+import {WideGrid} from '../components/grid'
 import {ArticleList} from '../components/article-list'
 import {PageTitle} from '../utils'
 
 const ArticlesPage = () => {
   return <MainLayout>
     <PageTitle chunks={['All Articles']} />
-    <Container>
+    <WideGrid wideHeading>
       <h2>Articles</h2>
       <StaticQuery
         query={graphql`
@@ -59,7 +59,7 @@ const ArticlesPage = () => {
           return <ArticleList articles={data.articles} />
         }}
       />
-    </Container>
+    </WideGrid>
   </MainLayout>
 }
 

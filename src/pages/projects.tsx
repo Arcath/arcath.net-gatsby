@@ -1,17 +1,16 @@
 import * as React from 'react'
 import {StaticQuery, graphql, Link} from 'gatsby'
-import Masonry from 'react-masonry-component'
 
 import {MainLayout} from '../layouts/main'
 
-import {Container} from '../components/container'
+import {WideGrid, ArticleListGrid} from '../components/grid'
 import {PageTitle} from '../utils'
 import {Article} from '../components/article-list'
 
 const ProjectsPage = () => {
   return <MainLayout>
     <PageTitle chunks={['Projects']} />
-    <Container>
+    <WideGrid wideHeading>
       <h2>Projects</h2>
       <StaticQuery
         query={graphql`
@@ -87,7 +86,7 @@ const ProjectsPage = () => {
           return categories.map((category) => {
             return <div>
               <h3>{category}</h3>
-              <Masonry>
+              <ArticleListGrid>
                 {projectsPerCategory[category].map((project) => {
                   return <Article>
                     <h3><Link to={project.node.fields.slug}>{project.node.frontmatter.title}</Link></h3>
@@ -95,12 +94,12 @@ const ProjectsPage = () => {
                     <p>{project.node.frontmatter.lead}</p>
                   </Article>
                 })}
-              </Masonry>
+              </ArticleListGrid>
             </div>
           })
         }}
       />
-    </Container>
+    </WideGrid>
   </MainLayout>
 }
 
