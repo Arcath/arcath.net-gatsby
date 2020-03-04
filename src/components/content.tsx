@@ -18,7 +18,8 @@ export const Content: React.FunctionComponent<{html: string}> = ({html}) => {
     p: (node: Partial<ReactHTMLElement<HTMLParagraphElement>["props"]>) => {
       let className = ''
 
-      if((node.children! as any).length === 1 && typeof (node.children! as any)[0] === 'object'){
+      if((node.children! as any).length === 1 && (node.children! as any)[0].type === 'span'){
+        console.dir(node.children)
         className = "full-width"
       }
 

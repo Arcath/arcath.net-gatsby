@@ -34,7 +34,7 @@ export const WideGrid = styled(Grid)<{wideHeading?: boolean}>`
 `
 
 export const ArticleGrid = styled(Grid)`
-  p, h1, h2, h3, h4, h5, h6, ul, ol, div, blockquote{
+  p, h1, h2, h3, h4, h5, h6, ul, ol, div, blockquote, i, strong, em{
     grid-column: 3;
   }
 
