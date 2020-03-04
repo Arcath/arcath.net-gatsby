@@ -70,7 +70,7 @@ Because `wp_enqueue_less` writes a css file for each hash (to browser cache bust
 
 `wp_enqueue_less` has been released through the Ed-IT Solutions Git Hub org as an open source library and is availbe on composer as `ed-itsolutions/wp_enqueue_less`. You can install it quickly using:
 
-```sh
+```bash
 composer require ed-itsolutions.wp_enqueue_less
 ```
 

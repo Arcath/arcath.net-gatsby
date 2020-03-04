@@ -17,7 +17,7 @@ Obviously, before you try removing the update you need to unapprove it in WSUS o
 
 Finding these ID’s is a pain and it can be different from machine to machine. To that end, I have written a small Powershell script to remove any Office update by KB number.
 
-```ps1
+```powershell
 #############################################################
 #
 # Office Update Remover

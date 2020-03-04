@@ -14,7 +14,7 @@ Basically Adauth would successfuly authenticate a user when no password was supp
 
 One thing that came to mind straight away was what level of access do we get using the passwordless login? So I fired up irb and ran this:
 
-```irb
+```rb
 >> Adauth.configure do |c|
 *> c.domain = "domain.local"
 *> c.query_user = "Administrator"
@@ -26,7 +26,7 @@ One thing that came to mind straight away was what level of access do we get usi
 
 Weirdly doing this test 5 minutes later resulted in an error
 
-```irb
+```rb
 >> Adauth::AdObjects::User.all
 RuntimeError: Search returned NIL
 ```
@@ -49,7 +49,7 @@ I started looking at Net/Ldap as a potential cause (Adauth doesn’t talk to AD 
 
 Although it is AD causing the issue its doing it to meet the LDAP specification so it makes it the responsibility of the LDAP client to support the spec and take it into account when writing code to that end the solution is to add a config variable to control anonymous bindings.
 
-```ruby
+```rb
 raise "Anonymous Bind is disabled" if @config[:password] == "" && !(@config[:anonymous_bind])
 ```
 
@@ -57,7 +57,7 @@ This happens in `Adauth::Connection.bind` to halt the authentication process in 
 
 As normal there is now a test to make sure that this never happens again
 
-```ruby
+```rb
 default_config
 ldap_user = Adauth.authenticate("administrator", "foo")
 ldap_user.should be_false

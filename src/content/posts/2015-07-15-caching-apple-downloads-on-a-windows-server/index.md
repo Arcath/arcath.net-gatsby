@@ -14,7 +14,7 @@ A quick google and yes there is a version of [squid for Windows](http://docs.dil
 
 The default config is pretty good and is 2 line changes away from being a caching server and then only needs the rules for the Apple download servers.
 
-```conf
+```js
 #
 # Recommended minimum configuration:
 #

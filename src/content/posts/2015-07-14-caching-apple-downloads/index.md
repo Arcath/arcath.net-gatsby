@@ -18,7 +18,7 @@ That article assumes that you already use squid which we don’t and more import
 
 For another iPad issue I already have a debain box running which I can easily add squid to so I quickly installed the `squid3` package and changed `/etc/squid3/squid.conf` to this:
 
-```conf
+```js
 http_port 3128
 
 hierarchy_stoplist cgi-bin ?
