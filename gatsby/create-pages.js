@@ -5,7 +5,7 @@ module.exports = async ({graphql, actions}) => {
 
   const allMarkdown = await graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMdx(limit: 1000) {
         edges {
           node {
             fields {
@@ -17,7 +17,7 @@ module.exports = async ({graphql, actions}) => {
         }
       }
 
-      posts: allMarkdownRemark(
+      posts: allMdx(
         filter: {fields: {layout: {glob: "+(post|book|note)"}}},
         sort: {fields: [fields___date], order: DESC}
       ){
@@ -38,7 +38,7 @@ module.exports = async ({graphql, actions}) => {
 
   let allTags = []
 
-  allMarkdown.data.allMarkdownRemark.edges.forEach(({ node }, i) => {
+  allMarkdown.data.allMdx.edges.forEach(({ node }, i) => {
     const {slug, layout, tags} = node.fields
 
     if(tags){

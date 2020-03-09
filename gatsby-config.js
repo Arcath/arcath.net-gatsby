@@ -1,5 +1,47 @@
 'use strict'
 
+const REMARK_PLUGINS = [
+  `@weknow/gatsby-remark-twitter`,
+  {
+    resolve: 'gatsby-remark-responsive-iframe',
+    options: {
+      wrapperStyle: 'margin-bottom: 1rem'
+    }
+  },
+  {
+    resolve: 'gatsby-remark-custom-blocks',
+    options: {
+      blocks: {
+        fullWidthImage: {
+          classes: 'full-width-image'
+        },
+        floatLeft: {
+          classes: 'float-left'
+        },
+        figure: {
+          classes: 'figure'
+        }
+      }
+    }
+  },
+  'gatsby-remark-prismjs',
+  'gatsby-remark-copy-linked-files',
+  'gatsby-remark-smartypants',
+  {
+    resolve: 'gatsby-remark-images',
+    options: {
+      maxWidth: 1920,
+      quality: 90,
+      linkImagesToOriginal: false,
+      withWebp: true,
+      tracedSVG: {
+        threshold: 10,
+        color: '#4834d4'
+      }
+    }
+  }
+]
+
 module.exports = {
   siteMetadata: {
     title: 'Adam Laycock',
@@ -51,49 +93,9 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
-          `@weknow/gatsby-remark-twitter`,
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: {
-              wrapperStyle: 'margin-bottom: 1rem'
-            }
-          },
-          {
-            resolve: 'gatsby-remark-custom-blocks',
-            options: {
-              blocks: {
-                fullWidthImage: {
-                  classes: 'full-width-image'
-                },
-                floatLeft: {
-                  classes: 'float-left'
-                },
-                figure: {
-                  classes: 'figure'
-                }
-              }
-            }
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1920,
-              quality: 90,
-              linkImagesToOriginal: false,
-              withWebp: true,
-              tracedSVG: {
-                threshold: 10,
-                color: '#4834d4'
-              }
-            }
-          }
-        ]
+        gatsbyRemarkPlugins: REMARK_PLUGINS
       }
     },
     'gatsby-transformer-json',
@@ -177,10 +179,9 @@ module.exports = {
         ],
         // How to resolve each field's value for a supported node type
         resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields' values
-          MarkdownRemark: {
+          Mdx: {
             title: node => node.frontmatter.title,
-            content: node => node.rawMarkdownBody,
+            content: node => node.frontmatter.lead,
             url: node => node.fields.slug,
             lead: node => node.frontmatter.lead,
             date: node => node.frontmatter.date,
@@ -208,7 +209,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMdx.edges.map(edge => {
                 return Object.assign(
                   {},
                   {
@@ -216,15 +217,14 @@ module.exports = {
                     description: edge.node.fields.lead || edge.node.excerpt,
                     date: edge.node.fields.date,
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    custom_elements: [{ 'content:encoded': edge.node.html }]
+                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug
                   }
                 )
               })
             },
             query: `
               {
-                allMarkdownRemark(
+                allMdx(
                   limit: 10,
                   filter: {
                     fields: {slug: {regex: "/^\/20/"}}

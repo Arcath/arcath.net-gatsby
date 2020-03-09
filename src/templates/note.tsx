@@ -13,9 +13,9 @@ import {MainLayout} from '../layouts/main'
 
 const NoteTemplate: React.SFC<{
   data: {
-    markdownRemark: {
+    mdx: {
       id: string
-      html: string
+      body: string
       frontmatter: {
         title: string
         date: string
@@ -29,7 +29,7 @@ const NoteTemplate: React.SFC<{
   }
   location: LocationProps
 }> = ({data, location}) => {
-  let post = data.markdownRemark
+  let post = data.mdx
 
   return <MainLayout>
     <PageTitle chunks={[post.frontmatter.title]} />
@@ -38,7 +38,7 @@ const NoteTemplate: React.SFC<{
       <h2>{post.frontmatter.title}</h2>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
       <TagList tags={post.frontmatter.tags} />
-      <Content html={post.html} />
+      <Content mdx={post.body} />
       <ShareButtons url={location.href} title={post.frontmatter.title} />
     </ArticleGrid>
     <WideGrid>
@@ -55,9 +55,9 @@ export default NoteTemplate
 
 export const query = graphql`
   query NoteTemplateQuery($slug: String!, $next: String!, $previous: String!){
-    markdownRemark(fields: { slug: {eq: $slug}}){
+    mdx(fields: { slug: {eq: $slug}}){
       id
-      html
+      body
       frontmatter{
         title
         date
@@ -66,7 +66,7 @@ export const query = graphql`
       }
     }
 
-    nextPost: markdownRemark(fields: { slug: {eq: $next}}){
+    nextPost: mdx(fields: { slug: {eq: $next}}){
       frontmatter{
         title
         date
@@ -80,7 +80,7 @@ export const query = graphql`
       }
     }
 
-    previousPost: markdownRemark(fields: { slug: {eq: $previous}}){
+    previousPost: mdx(fields: { slug: {eq: $previous}}){
       frontmatter{
         title
         date

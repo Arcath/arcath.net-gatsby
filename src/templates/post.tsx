@@ -15,9 +15,9 @@ import {MainLayout} from '../layouts/main'
 
 const PostTemplate: React.SFC<{
   data: {
-    markdownRemark: {
+    mdx: {
       id: string
-      html: string
+      body: string
       fields: {
         slug: string
       }
@@ -45,7 +45,7 @@ const PostTemplate: React.SFC<{
   }
   location: LocationProps
 }> = ({data, location}) => {
-  let post = data.markdownRemark
+  let post = data.mdx
 
   let read = false
 
@@ -70,7 +70,7 @@ const PostTemplate: React.SFC<{
       <h2>{post.frontmatter.title}</h2>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
       <TagList tags={post.frontmatter.tags} />
-      <Content html={post.html}/>
+      <Content mdx={post.body}/>
       <Waypoint onEnter={handleWaypoint} />
       <ShareButtons url={location.href} title={post.frontmatter.title} />
       {syndication(post.frontmatter.syndication)}
@@ -113,9 +113,9 @@ export const query = graphql`
       }
     }
 
-    markdownRemark(fields: { slug: {eq: $slug}}){
+    mdx(fields: { slug: {eq: $slug}}){
       id
-      html
+      body
       fields{
         slug
       }
@@ -131,7 +131,7 @@ export const query = graphql`
       }
     }
 
-    nextPost: markdownRemark(fields: { slug: {eq: $next}}){
+    nextPost: mdx(fields: { slug: {eq: $next}}){
       frontmatter{
         title
         date
@@ -145,7 +145,7 @@ export const query = graphql`
       }
     }
 
-    previousPost: markdownRemark(fields: { slug: {eq: $previous}}){
+    previousPost: mdx(fields: { slug: {eq: $previous}}){
       frontmatter{
         title
         date

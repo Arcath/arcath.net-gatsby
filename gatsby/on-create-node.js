@@ -7,7 +7,7 @@ module.exports = ({node, actions, getNode}) => {
   const {createNodeField} = actions
 
   switch (node.internal.type) {
-    case 'MarkdownRemark': {
+    case 'Mdx': {
       let {permalink, layout, lead, date, tags} = node.frontmatter
       const {relativePath} = getNode(node.parent)
 

@@ -15,9 +15,9 @@ import {MainLayout} from '../layouts/main'
 
 const BookTemplate: React.SFC<{
   data: {
-    markdownRemark: {
+    mdx: {
       id: string
-      html: string
+      body: string
       frontmatter: {
         title: string
         link: string
@@ -38,15 +38,15 @@ const BookTemplate: React.SFC<{
 
   location: LocationProps
 }> = ({data, location}) => {
-  let post = data.markdownRemark
+  let post = data.mdx
 
   return <MainLayout>
-    <OpenGraphTags title={post.frontmatter.title} lead="" id={post.id} />
+    <OpenGraphTags title={post.frontmatter.title} lead="" />
     <ArticleGrid>
       <PageTitle chunks={[post.frontmatter.title, 'Books']} />
       <ArticleHeading>{post.frontmatter.title} <small>by {post.frontmatter.author}</small></ArticleHeading>
       <DateHeading>{formatAsDate(post.frontmatter.date)}</DateHeading>
-      <Content html={post.html} />
+      <Content mdx={post.body} />
       <p>
         <OutboundLink href={post.frontmatter.link}>Buy on Amazon</OutboundLink><br />
         <small>Following this link and making a purchase supports this site.</small>
@@ -74,8 +74,8 @@ export const query = graphql`
       }
     }
 
-    markdownRemark(fields: { slug: {eq: $slug}}){
-      html
+    mdx(fields: { slug: {eq: $slug}}){
+      body
       frontmatter{
         title
         link
@@ -84,7 +84,7 @@ export const query = graphql`
       }
     }
 
-    nextPost: markdownRemark(fields: { slug: {eq: $next}}){
+    nextPost: mdx(fields: { slug: {eq: $next}}){
       frontmatter{
         title
         date
@@ -98,7 +98,7 @@ export const query = graphql`
       }
     }
 
-    previousPost: markdownRemark(fields: { slug: {eq: $previous}}){
+    previousPost: mdx(fields: { slug: {eq: $previous}}){
       frontmatter{
         title
         date

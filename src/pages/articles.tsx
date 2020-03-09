@@ -15,7 +15,7 @@ const ArticlesPage = () => {
       <StaticQuery
         query={graphql`
           query ArticlesQuery{
-            articles: allMarkdownRemark(
+            articles: allMdx(
               filter: {fields: {layout: {glob: "+(post|book|note)"}}},
               sort: {fields: [fields___date], order: DESC}
             ){

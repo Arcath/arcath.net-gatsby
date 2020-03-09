@@ -209,7 +209,7 @@ export const pageQuery = graphql`
       }
     }
 
-    projects: allMarkdownRemark(
+    projects: allMdx(
       filter: {fields: {layout: {glob: "+(project)"}}},
       sort: {fields: [frontmatter___year], order: DESC},
       limit: 2
@@ -228,7 +228,7 @@ export const pageQuery = graphql`
       }
     }
 
-    articles: allMarkdownRemark(
+    articles: allMdx(
       filter: {fields: {layout: {glob: "+(post|note)"}}},
       sort: {fields: [fields___date], order: DESC},
       limit: 3
@@ -250,7 +250,7 @@ export const pageQuery = graphql`
       }
     }
 
-    books: allMarkdownRemark(
+    books: allMdx(
       filter: {fields: {layout: {glob: "+(book)"}}},
       sort: {fields: [fields___date], order: DESC},
       limit: 2

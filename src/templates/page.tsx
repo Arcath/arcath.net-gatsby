@@ -10,8 +10,8 @@ import {Content} from '../components/content'
 
 const PageTemplate: React.SFC<{
   data: {
-    markdownRemark: {
-      html: string
+    mdx: {
+      body: string
       frontmatter: {
         title: string
       }
@@ -21,13 +21,13 @@ const PageTemplate: React.SFC<{
     previousPost: PostDetails
   }
 }> = ({data}) => {
-  let page = data.markdownRemark
+  let page = data.mdx
 
   return <MainLayout>
     <PageTitle chunks={[page.frontmatter.title]} />
     <ArticleGrid>
       <h2>{page.frontmatter.title}</h2>
-      <Content html={page.html} />
+      <Content mdx={page.body} />
     </ArticleGrid>
     <WideGrid>
       <h2>My Articles</h2>
@@ -43,14 +43,14 @@ export default PageTemplate
 
 export const query = graphql`
   query PageTemplateQuery($slug: String!, $next: String!, $previous: String!){
-    markdownRemark(fields: { slug: {eq: $slug}}){
-      html
+    mdx(fields: { slug: {eq: $slug}}){
+      body
       frontmatter{
         title
       }
     }
 
-    nextPost: markdownRemark(fields: { slug: {eq: $next}}){
+    nextPost: mdx(fields: { slug: {eq: $next}}){
       frontmatter{
         title
         date
@@ -64,7 +64,7 @@ export const query = graphql`
       }
     }
 
-    previousPost: markdownRemark(fields: { slug: {eq: $previous}}){
+    previousPost: mdx(fields: { slug: {eq: $previous}}){
       frontmatter{
         title
         date

@@ -45,7 +45,7 @@ export default TagTemplate
 
 export const query = graphql`
   query TagTemplateQuery($tag: String!){
-    articles: allMarkdownRemark(
+    articles: allMdx(
       filter: {frontmatter: {tags: {in: [$tag]}}},
       sort: {fields: [fields___date], order: DESC}
     ){

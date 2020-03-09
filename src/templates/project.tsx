@@ -23,8 +23,8 @@ const Button = styled(OutboundLink)`
 
 const ProjectTemplate: React.SFC<{
   data: {
-    markdownRemark: {
-      html: string
+    mdx: {
+      body: string
       frontmatter: {
         title: string
         year: string
@@ -36,13 +36,13 @@ const ProjectTemplate: React.SFC<{
     previousPost: PostDetails
   }
 }> = ({data}) => {
-  let page = data.markdownRemark
+  let page = data.mdx
 
   return <MainLayout>
     <PageTitle chunks={[page.frontmatter.title, 'Projects']} />
     <ArticleGrid>
       <h2>{page.frontmatter.title} ({page.frontmatter.year})</h2>
-      <Content html={page.html} />
+      <Content mdx={page.body} />
       <Button href={page.frontmatter.link}>{page.frontmatter.title} <FontAwesomeIcon icon={faExternalLinkAlt} /></Button>
     </ArticleGrid>
     <WideGrid>
@@ -59,8 +59,8 @@ export default ProjectTemplate
 
 export const query = graphql`
   query ProjectTemplateQuery($slug: String!, $next: String!, $previous: String!){
-    markdownRemark(fields: { slug: {eq: $slug}}){
-      html
+    mdx(fields: { slug: {eq: $slug}}){
+      body
       frontmatter{
         title
         year
@@ -68,7 +68,7 @@ export const query = graphql`
       }
     }
 
-    nextPost: markdownRemark(fields: { slug: {eq: $next}}){
+    nextPost: mdx(fields: { slug: {eq: $next}}){
       frontmatter{
         title
         date
@@ -82,7 +82,7 @@ export const query = graphql`
       }
     }
 
-    previousPost: markdownRemark(fields: { slug: {eq: $previous}}){
+    previousPost: mdx(fields: { slug: {eq: $previous}}){
       frontmatter{
         title
         date

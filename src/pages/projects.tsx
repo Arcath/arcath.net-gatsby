@@ -15,7 +15,7 @@ const ProjectsPage = () => {
       <StaticQuery
         query={graphql`
           query ProjectsPageQuery{
-            projects: allMarkdownRemark(
+            projects: allMdx(
               filter: {fields: {layout: {eq: "project"}}},
               sort: {fields: [frontmatter___year], order: DESC}
             ){
