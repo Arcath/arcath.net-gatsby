@@ -208,7 +208,7 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
+            serialize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(edge => {
                 return Object.assign(
                   {},
@@ -234,7 +234,6 @@ module.exports = {
                   edges {
                     node {
                       excerpt
-                      html
                       fields {
                         slug
                         lead
