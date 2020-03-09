@@ -27,7 +27,7 @@ const generateImages = (image) => {
 const generateImage = (social, post) => {
   JIMP.read(path.join(socialsPath, social))
     .then((image) => {
-      const file = readFileSync(path.join(postsPath, post, 'index.md')).toString()
+      const file = readFileSync(path.join(postsPath, post, 'index.mdx')).toString()
 
       const matches = POST_PATH_SLUG_PATTERN.exec(post)
       const output = path.join(outputPath, matches[1], matches[2], matches[4])
