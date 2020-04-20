@@ -11,7 +11,7 @@
   "scripts": {
     "build": "npm run images && gatsby build",
     "clean": "rimraf public && rimraf .cache && rimraf static/social/*",
-    "dev": "gatsby develop",
+    "dev": "gatsby develop -H 0.0.0.0",
     "start": "npm run dev",
     "test": "npm run type-check && npm run lint",
     "type-check": "tsc",
