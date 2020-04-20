@@ -15,7 +15,7 @@ module.exports = {
       output += '-draft'
     }
 
-    output += '/index.md'
+    output += '/index.mdx'
 
     if(data.tags){
       data.tags = `tags:\n  - ${data.tags.split(',').join('\n  - ')}`

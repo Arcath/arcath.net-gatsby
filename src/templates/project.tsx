@@ -19,6 +19,9 @@ const Button = styled(OutboundLink)`
   background-color:${colors.project};
   color:#fff !important;
   width:auto;
+  grid-column:3;
+  text-align:center;
+  padding:10px;
 `
 
 const ProjectTemplate: React.SFC<{
