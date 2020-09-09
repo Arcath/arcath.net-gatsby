@@ -28,16 +28,32 @@ const Box = styled('div')`
   transform:rotate(${Dimensions.lightsource});
   z-index:5;
 
+  @media(max-width: 1140px){
+    left:-30vw;
+  }
+
   @media(max-width:900px){
     left:-35vw;
   }
 
-  @media(max-width:550px){
+  @media(max-width: 735px){
+    left:-40vw;
+  }
+
+  @media(max-width: 620px){
     left:-45vw;
   }
 
-  @media(max-width:400px){
+  @media(max-width:550px){
+    left:-50vw;
+  }
+
+  @media(max-width: 480px){
     left:-55vw;
+  }
+
+  @media(max-width:430px){
+    left:-60vw;
   }
 `
 
