@@ -47,7 +47,7 @@
     "gatsby-plugin-google-gtag": "^2.1.10",
     "gatsby-plugin-lunr": "^1.5.2",
     "gatsby-plugin-manifest": "^2.4.28",
-    "gatsby-plugin-mdx": "^1.2.39",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-plugin-offline": "^3.2.27",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sharp": "^2.6.34",
